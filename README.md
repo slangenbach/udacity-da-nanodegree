@@ -1,6 +1,4 @@
-#  Data analyst nanodegree repo
-
-## Overview
+#  Data analyst nanodegree
 This repo contains all data, code and reports for the [Udacity data analyst nanodegree](https://www.udacity.com/course/data-analyst-nanodegree--nd002).
 It's structured around the following projects:
 
