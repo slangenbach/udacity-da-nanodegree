@@ -58,11 +58,12 @@ docs/_build/
 # PyBuilder
 target/
 
-#Ipython Notebook
+# Ipython Notebook
 .ipynb_checkpoints
 
-p2/daily_engagement_full.csv
-
-p2/.DS_Store
-
+# macOS files
 .DS_Store
+
+# User defined large files
+p2/daily_engagement_full.csv
+p3/cologne_germany.osm
