@@ -12,7 +12,7 @@ Notes:
 Notes:
 
 ```{r Pseudo-Facebook User Data}
-
+pf <- read.csv("pseudo_facebook.tsv", sep="\t")
 ```
 
 ***
@@ -87,7 +87,7 @@ Notes:
 #### What code would you enter to create a histogram of friend counts?
 
 ```{r Friend Count}
-
+qplot(x = friend_count, data = pf)
 ```
 
 #### How is this plot similar to Moira's first plot?
@@ -99,7 +99,8 @@ Response:
 Notes:
 
 ```{r Limiting the Axes}
-
+qplot(x = friend_count, data = pf, binwidth = 25) +
+  scale_x_continuous(limits = c(0,1000), breaks = seq(0, 1000, 50))
 ```
 
 ### Exploring with Bin Width
@@ -116,7 +117,8 @@ Notes:
 # Add it to the code below.
 qplot(x = friend_count, data = pf, binwidth = 10) +
   scale_x_continuous(limits = c(0, 1000),
-                     breaks = seq(0, 1000, 50))
+                     breaks = seq(0, 1000, 50)) +
+  facet_wrap(~gender)
 ```
 
 ***
@@ -125,7 +127,10 @@ qplot(x = friend_count, data = pf, binwidth = 10) +
 Notes:
 
 ```{r Omitting NA Values}
-
+qplot(x = friend_count, data = subset(pf, !is.na(gender)), binwidth = 10) +
+  scale_x_continuous(limits = c(0, 1000),
+                     breaks = seq(0, 1000, 50)) +
+  facet_wrap(~gender)
 ```
 
 ***
@@ -134,17 +139,17 @@ Notes:
 Notes:
 
 ```{r Statistics \'by\' Gender}
-
+by(pf$friend_count, pf$gender, summary)
 ```
 
 #### Who on average has more friends: men or women?
-Response:
+Response: women
 
 #### What's the difference between the median friend count for women and men?
-Response:
+Response: 22
 
 #### Why would the median be a better measure than the mean?
-Response:
+Response: because the distribution of friend counts is skewed
 
 ***
 
@@ -160,7 +165,8 @@ Notes:
 #### How would you create a histogram of tenure by year?
 
 ```{r Tenure Histogram by Year}
-
+qplot(x = tenure/365, data = pf, binwidth = 0.25, color = I("black"), fill = I("black")) +
+  scale_x_continuous(breaks = seq(1 ,8 ,1), limits = c(0,8))
 ```
 
 ***
@@ -169,7 +175,8 @@ Notes:
 Notes:
 
 ```{r Labeling Plots}
-
+qplot(x = tenure/365, data = pf, binwidth = 0.25, xlab = "Tenure in years", ylab = "Number of users in sample") +
+  scale_x_continuous(breaks = seq(1 ,8 ,1), limits = c(0,8))
 ```
 
 ***
@@ -178,7 +185,11 @@ Notes:
 Notes:
 
 ```{r User Ages}
-
+qplot(x = age, data = pf,
+      xlab = "Age in years",
+      ylab = "Number of users in sample",
+      binwidth = 1) +
+  scale_x_continuous(breaks = seq(13, max(pf$age), 5), limits = c(13, max(pf$age)))
 ```
 
 #### What do you notice?
@@ -191,6 +202,7 @@ Notes:
 
 ***
 
+
 ### Lada's Money Bag Meme
 Notes:
 
@@ -199,13 +211,17 @@ Notes:
 ### Transforming Data
 Notes:
 
+
 ***
 
 ### Add a Scaling Layer
 Notes:
 
 ```{r Add a Scaling Layer}
-
+plt_fc <- qplot(x = friend_count, data = pf)
+plt_fc_log <- plt_fc + scale_x_log10()
+plt_fc_sqrt <- plt_fc + scale_x_sqrt()
+grid.arrange(plt_fc, plt_fc_log, plt_fc_sqrt)
 ```
 
 ***
@@ -214,7 +230,14 @@ Notes:
 ### Frequency Polygons
 
 ```{r Frequency Polygons}
-
+qplot(x = www_likes,
+      data = subset(pf, !is.na(gender)), 
+      geom = "freqpoly",
+      color = gender,
+      xlab = "Number of likes in WWW",
+      ylab = "Percentage of users with resp. friend count") + 
+  scale_x_continuous() +
+  scale_x_log10()
 ```
 
 ***
@@ -223,7 +246,7 @@ Notes:
 Notes:
 
 ```{r Likes on the Web}
-
+by(pf$www_likes, pf$gender, sum)
 ```
 
 
@@ -239,7 +262,8 @@ Notes:
 #### Adjust the code to focus on users who have friend counts between 0 and 1000.
 
 ```{r}
-
+qplot(x = gender, y = friend_count, data = subset(pf, !is.na(gender)), geom = "boxplot") +
+  coord_cartesian(ylim = c(0,1000))  
 ```
 
 ***
@@ -256,7 +280,10 @@ Response:
 #### Write about some ways that you can verify your answer.
 Response:
 ```{r Friend Requests by Gender}
+qplot(x = gender, y = friendships_initiated, data = subset(pf, !is.na(gender)), geom = "boxplot") +
+  coord_cartesian(ylim = c(0, 150))
 
+by(pf$friendships_initiated, pf$gender, summary)
 ```
 
 Response:
@@ -267,7 +294,12 @@ Response:
 Notes:
 
 ```{r Getting Logical}
+pf$mobile_checkin <- NA
+pf$mobile_checkin <- ifelse(pf$mobile_likes > 0, TRUE, FALSE)
+pf$mobile_checkin <- factor(pf$mobile_checkin)
 
+summary(pf$mobile_checkin)
+sum(pf$mobile_checkin == TRUE) / length(pf$mobile_checkin)
 ```
 
 Response:
