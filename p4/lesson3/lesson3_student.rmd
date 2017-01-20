@@ -12,7 +12,7 @@ Notes:
 Notes:
 
 ```{r Pseudo-Facebook User Data}
-
+pf <- read.csv("pseudo_facebook.tsv", sep = "\t")
 ```
 
 ***
@@ -23,12 +23,14 @@ Notes:
 ```{r Histogram of Users\' Birthdays}
 install.packages('ggplot2')
 library(ggplot2)
+qplot(x = dob_day, data = pf) + 
+  scale_x_continuous(breaks = 1:31)
 ```
 
 ***
 
 #### What are some things that you notice about this histogram?
-Response:
+Response: Unusually high amount of users with dob_day = 1
 
 ***
 
@@ -43,13 +45,13 @@ Notes:
 ***
 
 #### Think about a time when you posted a specific message or shared a photo on Facebook. What was it?
-Response:
+Response: Marriage
 
 #### How many of your friends do you think saw that post?
-Response:
+Response: 150
 
 #### Think about what percent of your friends on Facebook see any posts or comments that you make in a month. What percent do you think that is?
-Response:
+Response: 33%
 
 ***
 
@@ -61,11 +63,13 @@ Notes:
 Notes:
 
 ```{r Faceting}
-
+qplot(x = dob_day, data = pf) + 
+  scale_x_continuous(breaks = 1:31) + 
+  facet_wrap(~dob_month)
 ```
 
 #### Let’s take another look at our plot. What stands out to you here?
-Response:
+Response: Anomaly only visible in January. Maybe users disguise real dob_day with 01.01.YYYY?
 
 ***
 
