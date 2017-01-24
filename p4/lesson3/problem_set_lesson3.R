@@ -63,4 +63,8 @@ qplot(x = carat, data = diamonds, color = carat, geom = "freqpoly", binwidth = 0
 table(diamonds$carat)
 
 # work with gapminder data
-# gm <- read...
+gm <- read.csv("gapminder.csv", header = T)
+# plots tbd
+
+# work with friends birthdays
+# tbd
