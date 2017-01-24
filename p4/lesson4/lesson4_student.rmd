@@ -12,13 +12,16 @@ Notes:
 Notes:
 
 ```{r Scatterplots}
-
+library(ggplot2)
+pf <- read.csv("../lesson3/pseudo_facebook.tsv", sep = "\t")
+qplot(x = age, y = friend_count, data = pf)
 ```
 
 ***
 
 #### What are some things that you notice right away?
-Response:
+Response: 
+Younger users seem to have more friends, although there are some very old users with a lot friends too
 
 ***
 
@@ -26,7 +29,8 @@ Response:
 Notes:
 
 ```{r ggplot Syntax}
-
+ggplot(aes(x = age, y = friend_count), data = pf) + geom_point() +
+  xlim(13, 90)
 ```
 
 ***
@@ -35,12 +39,13 @@ Notes:
 Notes:
 
 ```{r Overplotting}
-
+ggplot(aes(x = age, y = friend_count), data = pf) + geom_point(alpha = 1/20) +
+  xlim(13, 90)
 ```
 
 #### What do you notice in the plot?
 Response:
-
+Most users of all ages have friend counts well below 1000
 ***
 
 ### Coord_trans()
