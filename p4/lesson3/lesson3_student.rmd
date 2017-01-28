@@ -21,7 +21,7 @@ pf <- read.csv("pseudo_facebook.tsv", sep = "\t")
 Notes:
 
 ```{r Histogram of Users\' Birthdays}
-install.packages('ggplot2')
+# install.packages('ggplot2')
 library(ggplot2)
 qplot(x = dob_day, data = pf) +
   scale_x_continuous(breaks = 1:31)
