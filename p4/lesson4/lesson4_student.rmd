@@ -58,18 +58,24 @@ Notes:
 #### Look up the documentation for coord_trans() and add a layer to the plot that transforms friend_count using the square root function. Create your plot!
 
 ```{r}
-
+ggplot(aes(x = age, y = friend_count), data = pf) +
+  geom_point(alpha = 1/20) +
+  xlim(13, 90) + 
+  coord_trans(y = "sqrt")
 ```
 
 #### What do you notice?
-
+The plot now resembles the data better, as extreme values for friends_count look more dispersed
 ***
 
 ### Alpha and Jitter
 Notes:
 
 ```{r Alpha and Jitter}
-
+ggplot(aes(x = age, y = friendships_initiated), data = pf) +
+  geom_point(alpha = 1/20, position = position_jitter(h = 0)) +
+  coord_trans(y = "sqrt") +
+  xlim(13, 90)
 ```
 
 ***
@@ -83,13 +89,21 @@ Notes:
 Notes:
 
 ```{r Conditional Means}
+library(dplyr)
 
+pf.fc_by_age <- pf %>%
+  group_by(age) %>%
+  summarise(friend_count_mean = mean(friend_count),
+            friend_count_median = median(friend_count),
+            n = n()) %>%
+  arrange(age)
 ```
 
 Create your plot!
 
 ```{r Conditional Means Plot}
-
+ggplot(aes(x = age, y = friend_count_mean), data = pf.fc_by_age) +
+  geom_line()
 ```
 
 ***
@@ -98,12 +112,24 @@ Create your plot!
 Notes:
 
 ```{r Overlaying Summaries with Raw Data}
-
+ggplot(aes(x = age, y = friend_count), data = pf) +
+  geom_point(alpha = 0.05,
+             position = position_jitter(h = 0),
+             color = "grey") +
+  coord_trans(y = "sqrt") +
+  geom_line(stat = "summary", fun.y = mean, color = "red") +
+  geom_line(stat = "summary", fun.y = quantile,
+            fun.args = list(probs = 0.1), linetype = 2, color = "orange") +
+  geom_line(stat = "summary", fun.y = quantile,
+            fun.args = list(probs = 0.9), linetype = 2, color = "orange") +
+  geom_line(stat = "summary", fun.y = median, color = "blue") +
+  coord_cartesian(xlim = c(13, 90), ylim = c(0, 1000))
 ```
 
 #### What are some of your observations of the plot?
 Response:
-
+Users having >= 1000 friends are rare.
+Data for users with age >= 75 seems to be biased
 ***
 
 ### Moira: Histogram Summary and Scatterplot
@@ -117,7 +143,7 @@ Notes:
 Notes:
 
 ```{r Correlation}
-
+cor.test(x = pf$age, y = pf$friend_count, method = "pearson")
 ```
 
 Look up the documentation for the cor.test function.
@@ -131,7 +157,7 @@ Response:
 Notes:
 
 ```{r Correlation on Subsets}
-with(                 , cor.test(age, friend_count))
+with(subset(pf, age <= 70), cor.test(age, friend_count))
 ```
 
 ***
@@ -145,7 +171,11 @@ Notes:
 Notes:
 
 ```{r}
-
+ggplot(aes(x = www_likes_received, y = likes_received), data = pf) +
+  geom_point() +
+  geom_smooth(method = "lm", color = "red") +
+  coord_cartesian(xlim = c(0, quantile(pf$www_likes_received, 0.95)),
+                  ylim = c(0, quantile(pf$likes_received, 0.95)))
 ```
 
 ***
@@ -154,7 +184,7 @@ Notes:
 Notes:
 
 ```{r Strong Correlations}
-
+cor.test(pf$likes_received, pf$www_likes_received)
 ```
 
 What's the correlation betwen the two variables? Include the top 5% of values for the variable in the calculation and round to 3 decimal places.
@@ -176,8 +206,8 @@ Notes:
 Notes:
 
 ```{r More Caution With Correlation}
-install.packages('alr3')
 library(alr3)
+data(Mitchell)
 ```
 
 Create your plot!
