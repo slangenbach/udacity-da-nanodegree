@@ -71,3 +71,4 @@ p3/cologne_germany.osm
 # R stuff
 .Rproj.user
 .Rhistory
+.RData
