@@ -1,3 +1,7 @@
+# Configure R to use packages from end of January 2017
+library(checkpoint)
+checkpoint("2017-01-27")
+
 # Install essential R packages
 install.packages("devtools", dependencies = T)
 
