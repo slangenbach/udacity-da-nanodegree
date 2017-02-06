@@ -11,3 +11,4 @@ install.packages("tidyverse", dependencies = T)
 
 # Install additional R packages for nanodegree
 install.packages("alr3", dependencies = T)
+install.packages("gridExtra")
