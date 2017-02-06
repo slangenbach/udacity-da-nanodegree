@@ -40,7 +40,8 @@ pf.fc_by_age_gender <- pf %>%
 Notes:
 
 ```{r Plotting Conditional Summaries}
-
+ggplot(data = pf.fc_by_age_gender, aes(x = age, y = mean_friend_count)) +
+  geom_line(aes(color = gender))
 ```
 
 ***
@@ -59,8 +60,11 @@ Notes:
 Notes:
 
 ```{r}
-install.packages('reshape2')
-library(reshape2)
+#install.packages('reshape2')
+#library(reshape2)
+
+# Use tidyr syntax instead
+spread(subset(pf.fc_by_age_gender, select = c("gender", "age", "median_friend_count")), gender, median_friend_count)
 ```
 
 
