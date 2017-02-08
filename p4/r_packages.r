@@ -1,4 +1,4 @@
-# Configure R to use packages from end of January 2017
+# Configure MRO to use packages from snapshot in January 2017
 library(checkpoint)
 checkpoint("2017-01-27")
 
