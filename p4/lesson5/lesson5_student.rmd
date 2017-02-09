@@ -24,7 +24,10 @@ ggplot(aes(x = gender, y = age),
        data = subset(pf, !is.na(gender))) + geom_histogram()
 
 # create grouped dataframe
-library(tidyverse)
+# library(tidyverse)
+# use tidyr and dplyr packages on macOS instead
+library(tidyr)
+library(dplyr)
 pf.fc_by_age_gender <- pf %>%
   filter(!is.na(gender)) %>%
   group_by(age, gender) %>%
@@ -125,7 +128,7 @@ ggplot(data = subset(pf, !is.na(year_joined.bucket)), aes(x = age, y = friend_co
 Notes:
 
 ```{r Friending Rate}
-
+pf$friend_rate <- pf$friend_count / subset(pf$tenure, pf$tenure >= 1)
 ```
 
 ***
@@ -134,11 +137,17 @@ Notes:
 Notes:
 
 What is the median friend rate?
-
+```{r}
+median(pf$friend_rate)
+```
 What is the maximum friend rate?
+```{r}
+max(pf$friend_rate)
+```
 
 ```{r Friendships Initiated}
-
+ggplot(data = subset(pf, tenure >= 1), aes(x = tenure,  y = friendships_initiated / tenure)) + 
+  geom_line(aes(color = year_joined.bucket), stat = "summary", fun.y = mean)
 ```
 
 ***
