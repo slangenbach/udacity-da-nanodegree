@@ -161,7 +161,8 @@ ggplot(aes(x = tenure, y = friendships_initiated / tenure),
        data = subset(pf, tenure >= 1)) +
   geom_line(aes(color = year_joined.bucket),
             stat = 'summary',
-            fun.y = mean)
+            fun.y = mean) +
+  geom_smooth(method = "auto")
 
 ggplot(aes(x = 7 * round(tenure / 7), y = friendships_initiated / tenure),
        data = subset(pf, tenure > 0)) +
@@ -199,7 +200,15 @@ Notes:
 Notes:
 
 ```{r Histograms Revisited}
+# load yoghurt data
+yo <- read.csv("./yogurt.csv")
 
+# convert id to factor
+yo$id <- factor(yo$id)
+
+# create histogram
+ggplot(data = yo, aes(x = price)) + 
+         geom_histogram()
 ```
 
 ***
@@ -208,7 +217,7 @@ Notes:
 Notes:
 
 ```{r Number of Purchases}
-
+yo <- transform(yo, all.purchases = strawberry + blueberry + pina.colada + plain + mixed.berry)
 ```
 
 ***
@@ -217,7 +226,8 @@ Notes:
 Notes:
 
 ```{r Prices over Time}
-
+ggplot(data = yo, aes(x = time / 365, y = price)) +
+  geom_point(alpha = 1/4)
 ```
 
 ***
@@ -230,7 +240,17 @@ Notes:
 ### Looking at Samples of Households
 
 ```{r Looking at Sample of Households}
+# set seed
+set.seed(1337)
 
+# generate sample
+sample.ids <- sample(levels(yo$id), 16)
+
+# fancy plot
+ggplot(data = subset(yo, id %in% sample.ids), aes(x = time, y = price)) +
+  facet_wrap(~ id) +
+  geom_line() +
+  geom_point(aes(size = all.purchases), pch = 1)
 ```
 
 ***
