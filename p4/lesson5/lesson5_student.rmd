@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 Lesson 5
 ========================================================
 
@@ -24,10 +29,10 @@ ggplot(aes(x = gender, y = age),
        data = subset(pf, !is.na(gender))) + geom_histogram()
 
 # create grouped dataframe
-# library(tidyverse)
+library(tidyverse)
 # use tidyr and dplyr packages on macOS instead
-library(tidyr)
-library(dplyr)
+#library(tidyr)
+#library(dplyr)
 pf.fc_by_age_gender <- pf %>%
   filter(!is.na(gender)) %>%
   group_by(age, gender) %>%
@@ -267,7 +272,12 @@ Notes:
 
 ### Scatterplot Matrix
 Notes:
-
+```{r}
+set.seed(1836)
+pf_subset <- pf[sample.int(nrow(pf), 1000), -1]
+cor.test(pf_subset$friendships_initiated, pf_subset$friend_count)
+cor.test(pf_subset$age, pf_subset$mobile_likes)
+```
 ***
 
 ### Even More Variables
