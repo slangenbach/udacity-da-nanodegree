@@ -1,0 +1,2 @@
+# Sources
+* R documentation from [CRAN|https://cran.r-project.org] and [RStudio|https://www.rstudio.com]
