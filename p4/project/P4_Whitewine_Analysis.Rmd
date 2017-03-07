@@ -31,34 +31,99 @@ library(tidyverse)
 wine <- read.csv("./wineQualityWhites.csv")
 ```
 
-> **Tip**: Before you create any plots, it is a good idea to provide a short
-introduction into the dataset that you are planning to explore. Replace this
-quoted text with that general information!
+The dataset we are going to investigate consists of roughly 4.900 records of
+white wines and 11 attributes specifiying their (chemical) properties. Each wine
+was rated by at least 3 experts in order to provide a quality score
+
+```{r echo=FALSE, structure}
+str(wine)
+```
+
+Structure tbd
+
+```{r echo=FALSE, summary}
+summary(wine)
+```
+
+Summary tbd
 
 # Univariate Plots Section
 
-> **Tip**: In this section, you should perform some preliminary exploration of
-your dataset. Run some summaries of the data and create univariate plots to
-understand the structure of the individual variables in your dataset. Don't
-forget to add a comment after each plot or closely-related group of plots!
-There should be multiple code chunks and text sections; the first one below is
-just to help you get started.
-
-```{r echo=FALSE, Univariate_Plots}
-
+```{r echo=FALSE, quality}
+ggplot(wine, aes(x = quality)) +
+  geom_histogram(bins = 9)
 ```
 
-> **Tip**: Make sure that you leave a blank line between the start / end of
-each code block and the end / start of your Markdown text so that it is
-formatted nicely in the knitted text. Note as well that text on consecutive
-lines is treated as a single space. Make sure you have a blank line between
-your paragraphs so that they too are formatted for easy readability.
+```{r echo=False, alcohol} 
+ggplot(wine, aes(x = alcohol)) +
+  geom_histogram()
+```
+
+```{r echo=False, sulphates} 
+ggplot(wine, aes(x = sulphates)) +
+  geom_histogram()
+```
+
+sulfate tbd
+
+```{r echo=False, ph} 
+ggplot(wine, aes(x = pH)) +
+  geom_histogram()
+```
+
+pH tbd
+
+```{r echo=False, residual.sugar} 
+ggplot(wine, aes(x = residual.sugar)) +
+  geom_histogram()
+```
+
+residual sugar tbd
+
+```{r echo=False, density} 
+ggplot(wine, aes(x = density)) +
+  geom_histogram()
+```
+
+Let's also investigate the remaining chemical variables
+* fixed.acidity
+* volatile.acidity
+* citric.acid
+* chlorides
+* free.sulfur.dioxide
+* total.sulfu.dioxide
+
+```{r echo=False, fixed.acidity} 
+ggplot(wine, aes(x = fixed.acidity)) +
+  geom_histogram()
+```
+
+```{r echo=False, volatile.acidity} 
+ggplot(wine, aes(x = volatile.acidity)) +
+  geom_histogram()
+```
+
+```{r echo=False, citric.acid} 
+ggplot(wine, aes(x = citric.acid)) +
+  geom_histogram()
+```
+
+```{r echo=False, chlorides} 
+ggplot(wine, aes(x = chlorides)) +
+  geom_histogram()
+```
+
+```{r echo=False, free.sulfur.dioxide} 
+ggplot(wine, aes(x = free.sulfur.dioxide)) +
+  geom_histogram()
+```
+
+```{r echo=False, total.sulfur.dioxide} 
+ggplot(wine, aes(x = total.sulfur.dioxide)) +
+  geom_histogram()
+```
 
 # Univariate Analysis
-
-> **Tip**: Now that you've completed your univariate explorations, it's time to
-reflect on and summarize what you've found. Use the questions below to help you
-gather your observations and add your own if you have other thoughts!
 
 ### What is the structure of your dataset?
 
@@ -72,6 +137,8 @@ investigation into your feature(s) of interest?
 ### Of the features you investigated, were there any unusual distributions? \
 Did you perform any operations on the data to tidy, adjust, or change the form \
 of the data? If so, why did you do this?
+
+### Own thougths
 
 
 # Bivariate Plots Section
