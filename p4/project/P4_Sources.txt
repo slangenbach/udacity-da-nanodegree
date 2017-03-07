@@ -1,2 +1,3 @@
 # Sources
 * R documentation from [CRAN|https://cran.r-project.org] and [RStudio|https://www.rstudio.com]
+* [ggplot2|http://docs.ggplot2.org/current] documentation
