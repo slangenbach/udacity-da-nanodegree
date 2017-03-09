@@ -67,6 +67,7 @@ target/
 # User defined large files
 p2/daily_engagement_full.csv
 p3/cologne_germany.osm
+p5/maildir/
 
 # R stuff
 .Rproj.user
