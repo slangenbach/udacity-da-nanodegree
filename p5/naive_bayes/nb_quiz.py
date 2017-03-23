@@ -1,12 +1,7 @@
-
-# coding: utf-8
-
 # # Naive Bayes
 # ## Intro to Machine Learning
 
 # ### Quiz 1
-
-# In[2]:
 
 def classify(features_train, labels_train):   
     ### import the sklearn module for GaussianNB
@@ -23,8 +18,6 @@ def classify(features_train, labels_train):
 
 
 # ### Quiz 2
-
-# In[6]:
 
 def NBAccuracy(features_train, labels_train, features_test, labels_test):
     """ compute the accuracy of your Naive Bayes classifier """
@@ -51,9 +44,6 @@ def NBAccuracy(features_train, labels_train, features_test, labels_test):
     
     accuracy = clf.score(features_test, labels_test)
     return accuracy
-
-
-# In[ ]:
 
 
 
