@@ -14,9 +14,16 @@
     enron_data["SKILLING JEFFREY K"]["bonus"] = 5600000
     
 """
+# python 3 style printing
+from __future__ import print_function
 
 import pickle
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
+# print number of rows in dataset
+print([len(enron_data)
+
+# print number of features in dataset
+print([len(v) for v in enron_data.values()])
 
