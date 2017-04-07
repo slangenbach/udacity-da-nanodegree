@@ -71,19 +71,20 @@ enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r")
 #         print(k,v["total_payments"])
 
 # print number of individuals with quantified salary or known email address:
-cnt_salary = 0
-cnt_email = 0
-cnt_payments = 0
-cnt_payments_poi = 0
-
-for k, v in enron_data.iteritems():
-    if v["salary"] != "NaN":
-        cnt_salary += 1
-    if v["email_address"] != "NaN":
-        cnt_email += 1
-    if v["total_payments"] == "NaN":
-        cnt_payments += 1
-    if v["poi"] == 1 and v["total_payments"] == "NaN":
-        cnt_payments_poi += 1
-
-print("# salary: %d, # email addresses %d, # total_payments %d (in percentage: %f), poi and total_payments %d (%f)" % (cnt_salary, cnt_email, cnt_payments, cnt_payments/146, cnt_payments_poi, cnt_payments_poi/146))
+# cnt_salary = 0
+# cnt_email = 0
+# cnt_payments = 0
+# cnt_payments_poi = 0
+#
+# for k, v in enron_data.iteritems():
+#     if v["salary"] != "NaN":
+#         cnt_salary += 1
+#     if v["email_address"] != "NaN":
+#         cnt_email += 1
+#     if v["total_payments"] == "NaN":
+#         cnt_payments += 1
+#     if v["poi"] == 1 and v["total_payments"] == "NaN":
+#         cnt_payments_poi += 1
+#
+# print("# salary: %d, # email addresses %d, # total_payments %d (in percentage: %f), poi and total_payments %d (%f)" %
+#       (cnt_salary, cnt_email, cnt_payments, cnt_payments/146, cnt_payments_poi, cnt_payments_poi/146))
