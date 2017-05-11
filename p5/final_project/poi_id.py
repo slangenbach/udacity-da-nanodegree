@@ -10,14 +10,24 @@ from tester import dump_classifier_and_data
 ### Task 1: Select what features you'll use.
 ### features_list is a list of strings, each of which is a feature name.
 ### The first feature must be "poi".
-features_list = ['poi','salary'] # You will need to use more features
+features_list = ['poi','salary', 'bonus'] # You will need to use more features
 
 ### Load the dictionary containing the dataset
 with open("final_project_dataset.pkl", "r") as data_file:
     data_dict = pickle.load(data_file)
 
 ### Task 2: Remove outliers
+# remove TOTAL line
+data_dict.pop("TOTAL", 0)
+
+# remove NaN values
+for v in data_dict.itervalues():
+    if v == "NaN":
+        data_dict.pop(v)
+
 ### Task 3: Create new feature(s)
+# tbd
+
 ### Store to my_dataset for easy export below.
 my_dataset = data_dict
 
@@ -46,6 +56,17 @@ clf = GaussianNB()
 from sklearn.cross_validation import train_test_split
 features_train, features_test, labels_train, labels_test = \
     train_test_split(features, labels, test_size=0.3, random_state=42)
+
+# fit clf
+clf.fit(features_train, labels_train)
+
+# predict results
+pred = clf.predict(features_test)
+
+# print precision and recall score
+from sklearn.metrics import precision_score, recall_score
+print "precision: %f" % precision_score(pred, labels_test)
+print "recall: %f" % recall_score(pred, labels_test)
 
 ### Task 6: Dump your classifier, dataset, and features_list so anyone can
 ### check your results. You do not need to change anything below, but make sure
