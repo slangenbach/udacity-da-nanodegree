@@ -8,5 +8,5 @@ It's structured around the following projects:
 4. Exploring and summarizing data using [R](https://www.r-project.org)
 5. Identiying fraud from Enron email using [scikit-learn](http://scikit-learn.org) and [NLTK](http://www.nltk.org)
 6. Data Visualization in [Tableau](https://www.tableau.com)
-7. Effective data visualization using [data driven documents a.k.a. d3.js](https://d3js.org) and [dimple.js](http://dimplejs.org)
-~~7. A/B testing~~
+7. ~~Effective data visualization using [data driven documents a.k.a. d3.js](https://d3js.org) and [dimple.js](http://dimplejs.org)~~
+8. ~~A/B testing~~
