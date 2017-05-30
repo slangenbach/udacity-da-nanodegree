@@ -10,7 +10,7 @@ from tester import dump_classifier_and_data
 ### Task 1: Select what features you'll use.
 ### features_list is a list of strings, each of which is a feature name.
 ### The first feature must be "poi".
-features_list = ['poi','salary', 'bonus', 'total_payments', 'exercised_stock_options', "total_stock_value", \
+features_list = ['poi','salary', 'bonus', 'total_payments', 'exercised_stock_options', "total_stock_value",
                  'from_this_person_to_poi', 'shared_receipt_with_poi', 'from_poi_to_this_person']
 
 ### Load the dictionary containing the dataset
@@ -30,6 +30,10 @@ data_dict.pop("TOTAL", 0)
 #             data_dict.pop(k, 0)
 
 print("# data points after cleaning: %d" % len(data_dict))
+
+# plot features
+import pandas as pd
+for
 
 ### Task 3: Create new feature(s)
 # ToDo: performance compensation, i.e. bonus + exercised_stock_options
