@@ -7,19 +7,18 @@ sys.path.append("../tools/")
 from feature_format import featureFormat, targetFeatureSplit
 from tester import dump_classifier_and_data
 
-### Task 1: Select what features you'll use.
-### features_list is a list of strings, each of which is a feature name.
-### The first feature must be "poi".
-features_list = ['poi','salary', 'bonus', 'total_payments', 'exercised_stock_options', "total_stock_value",
-                 'from_this_person_to_poi', 'shared_receipt_with_poi', 'from_poi_to_this_person']
-
 ### Load the dictionary containing the dataset
 with open("final_project_dataset.pkl", "r") as data_file:
     data_dict = pickle.load(data_file)
 
-### Task 2: Remove outliers
-#print("# data points before cleaning: %d" % len(data_dict))
+### Task 1: Select what features you'll use.
+### features_list is a list of strings, each of which is a feature name.
+### The first feature must be "poi".
+features_list = ['poi','salary', 'bonus', 'total_payments', 'exercised_stock_options', "total_stock_value", "expenses",
+                 "restricted_stock", 'from_this_person_to_poi', 'shared_receipt_with_poi', 'from_poi_to_this_person',
+                 "poi_comm_index", "performance_compensation"]
 
+### Task 2: Remove outliers # ToDo: get rid of outliers
 # remove TOTAL line
 data_dict.pop("TOTAL", 0)
 
@@ -29,9 +28,7 @@ for k, v in data_dict.iteritems():
         if v2 == "NaN":
             v[k2] = 0
 
-#print("# data points after cleaning: %d" % len(data_dict))
-
-# plot features
+# plot features # ToDo evaluate feature importance
 # done in ipython poi_id jupyter notebook
 
 
@@ -46,21 +43,59 @@ for k, v in data_dict.iteritems():
             v["poi_comm_index"] = float(v["from_this_person_to_poi"] / v["to_messages"])
 
 ### Store to my_dataset for easy export below.
-#my_dataset = data_dict
+my_dataset = data_dict
 
 ### Extract features and labels from dataset for local testing
-#data = featureFormat(my_dataset, features_list, sort_keys = True)
-#labels, features = targetFeatureSplit(data)
+data = featureFormat(my_dataset, features_list, sort_keys = True)
+labels, features = targetFeatureSplit(data)
 
-### Task 4: Try a varity of classifiers ToDo implement PCA, SelectKBest
+### Task 4: Try a varity of classifiers ToDo implement PCA?
 ### Please name your classifier clf for easy export below.
 ### Note that if you want to do PCA or other multi-stage operations,
 ### you'll need to use Pipelines. For more info:
 ### http://scikit-learn.org/stable/modules/pipeline.html
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.feature_selection import SelectKBest
+from sklearn.feature_selection import SelectFromModel
+from sklearn.decomposition import PCA
+#from sklearn.model_selection import StratifiedShuffleSplit # Todo Implement
+from sklearn.model_selection import train_test_split
 
-# Provided to give you a starting point. Try a variety of classifiers. #ToDo implement base model
-#from sklearn.naive_bayes import GaussianNB
-#clf = GaussianNB()
+# scale features
+features = StandardScaler().fit_transform(features)
+
+# apply stratified shuffle split
+#cv = StratifiedShuffleSplit
+
+# perform train-test split
+features_train, features_test, labels_train, labels_test = train_test_split(features, labels,test_size=0.3, random_state=42)
+
+# base clf
+from sklearn.naive_bayes import GaussianNB
+
+pipe1 = Pipeline([
+    ("nb", GaussianNB()) # provided as base clf
+])
+
+# clf with feature selection
+# http://scikit-learn.org/stable/modules/feature_selection.html#univariate-feature-selection
+from sklearn.svm import LinearSVC
+
+
+pipe2 = Pipeline([
+    ("feautre_selection", SelectFromModel(LinearSVC())),
+    ("clf", GaussianNB())
+])
+
+# clf with feature selection and tree
+from sklearn.ensemble import RandomForestClassifier
+
+pipe3 = Pipeline([
+    ("feautre_selection", SelectKBest()),
+    ("clf", RandomForestClassifier())
+])
+
 
 ### Task 5: Tune your classifier to achieve better than .3 precision and recall ToDo implement gridsearch
 ### using our testing script. Check the tester.py script in the final project
@@ -68,22 +103,25 @@ for k, v in data_dict.iteritems():
 ### function. Because of the small size of the dataset, the script uses
 ### stratified shuffle split cross validation. For more info: 
 ### http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.StratifiedShuffleSplit.html
+from sklearn.model_selection import GridSearchCV
+#clf = RandomForestClassifier()
+#params = ""
+#cv = StratifiedShuffleSplit(n_splits=3)
+#gs = GridSearchCV(clf, params=params, )
+
 
 # Example starting point. Try investigating other evaluation techniques!
-# from sklearn.cross_validation import train_test_split
-# features_train, features_test, labels_train, labels_test = \
-#     train_test_split(features, labels, test_size=0.3, random_state=42)
-
 # fit clf
-#clf.fit(features_train, labels_train)
+clf = pipe2
+clf.fit(features_train, labels_train)
 
 # predict results
-#pred = clf.predict(features_test)
+pred = clf.predict(features_test)
 
 # print precision and recall score
-#from sklearn.metrics import precision_score, recall_score
-#print "precision: %f" % precision_score(pred, labels_test)
-#print "recall: %f" % recall_score(pred, labels_test)
+from sklearn.metrics import precision_score, recall_score
+print "precision: %f" % precision_score(pred, labels_test) # base score: 0.4
+print "recall: %f" % recall_score(pred, labels_test) # base score: 0.4
 
 ### Task 6: Dump your classifier, dataset, and features_list so anyone can
 ### check your results. You do not need to change anything below, but make sure
