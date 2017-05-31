@@ -18,29 +18,32 @@ with open("final_project_dataset.pkl", "r") as data_file:
     data_dict = pickle.load(data_file)
 
 ### Task 2: Remove outliers
-print("# data points before cleaning: %d" % len(data_dict))
+#print("# data points before cleaning: %d" % len(data_dict))
 
 # remove TOTAL line
 data_dict.pop("TOTAL", 0)
 
-# remove NaN values ToDo implement
-# for k, v in data_dict.iteritems():
-#     for e in v.itervalues():
-#         if e == "NaN":
-#             data_dict.pop(k, 0)
+# remove NaN values
+for k, v in data_dict.iteritems():
+    for k2, v2 in v.iteritems():
+        if v2 == "NaN":
+            v[k2] = 0
 
-print("# data points after cleaning: %d" % len(data_dict))
+#print("# data points after cleaning: %d" % len(data_dict))
 
 # plot features
-import pandas as pd
-for
+# done in ipython poi_id jupyter notebook
+
 
 ### Task 3: Create new feature(s)
-# ToDo: performance compensation, i.e. bonus + exercised_stock_options
-# ToDo: sth. on poi communication intensity, i.e some kind of index like: from_this_person_to_poi) / to_messages
 for k, v in data_dict.iteritems():
-    k["performance_compensation"] = v["bonus"] + v["exercised_stock_options"]
-    k["poi_comm_index"] = float(v["from_this_person_to_poi"] / v["to_messages"])
+        v["performance_compensation"] = v["bonus"] + v["exercised_stock_options"] + v["long_term_incentive"]
+
+        # prevent zero division error
+        if v["to_messages"] == 0:
+            v["poi_comm_index"] = 0
+        else:
+            v["poi_comm_index"] = float(v["from_this_person_to_poi"] / v["to_messages"])
 
 ### Store to my_dataset for easy export below.
 #my_dataset = data_dict
@@ -49,13 +52,13 @@ for k, v in data_dict.iteritems():
 #data = featureFormat(my_dataset, features_list, sort_keys = True)
 #labels, features = targetFeatureSplit(data)
 
-### Task 4: Try a varity of classifiers ToDo implement PCA
+### Task 4: Try a varity of classifiers ToDo implement PCA, SelectKBest
 ### Please name your classifier clf for easy export below.
 ### Note that if you want to do PCA or other multi-stage operations,
 ### you'll need to use Pipelines. For more info:
 ### http://scikit-learn.org/stable/modules/pipeline.html
 
-# Provided to give you a starting point. Try a variety of classifiers.
+# Provided to give you a starting point. Try a variety of classifiers. #ToDo implement base model
 #from sklearn.naive_bayes import GaussianNB
 #clf = GaussianNB()
 
