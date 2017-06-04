@@ -14,25 +14,28 @@ with open("final_project_dataset.pkl", "r") as data_file:
 ### Task 1: Select what features you'll use.
 ### features_list is a list of strings, each of which is a feature name.
 ### The first feature must be "poi".
-# features_list = ["poi", "bonus", "exercised_stock_options", "from_poi_to_this_person", "long_term_incentive", "shared_receipt_with_poi", "total_stock_value"]
-feature_list = ["poi", ] # ToDo: Include all features and let clf decide with to use
+
+# select feature based on intuition
+#features_list = ["poi", "bonus", "exercised_stock_options", "from_poi_to_this_person", "long_term_incentive", "shared_receipt_with_poi", "total_stock_value"]
+
+# start with all features and do selection via statistcal technique
+features_list = ["poi", 'salary', 'deferral_payments', 'total_payments', 'loan_advances', 'bonus',
+                'restricted_stock_deferred', 'deferred_income', 'total_stock_value', 'expenses',
+                'exercised_stock_options', 'other', 'long_term_incentive', 'restricted_stock', 'director_fees',
+                'to_messages', 'from_poi_to_this_person', 'from_messages', 'from_this_person_to_poi',
+                'shared_receipt_with_poi']
 
 ### Task 2: Remove outliers
-# remove TOTAL line
-data_dict.pop("TOTAL", 0)
 
-# remove NaN values
-for k, v in data_dict.iteritems():
-    for k2, v2 in v.iteritems():
-        if v2 == "NaN":
-            #v[k2] = 0
-            pass
+# remove TOTAL and travel agency lines
+data_dict.pop("TOTAL", 0)
+data_dict.pop("THE TRAVEL AGENCY IN THE PARK", 0)
+data_dict.pop("LOCKHART EUGENE E", 0)
 
 # remove outliers identified during analysis
-data_dict.pop("LAY KENNETH L", 0)
-data_dict.pop("SKILLING JEFFREY K", 0)
-data_dict.pop("LAVORATO JOHN J", 0)
-data_dict.pop("BELFER ROBERT", 0)
+#data_dict.pop("LAY KENNETH L", 0)
+#data_dict.pop("SKILLING JEFFREY K", 0)
+
 
 ### Task 3: Create new feature(s)
 # see jupyter notebook
@@ -44,99 +47,150 @@ my_dataset = data_dict
 data = featureFormat(my_dataset, features_list, sort_keys = True)
 labels, features = targetFeatureSplit(data)
 
-### Task 4: Try a varity of classifiers ToDo implement PCA?
+### Task 4: Try a varity of classifiers
 ### Please name your classifier clf for easy export below.
 ### Note that if you want to do PCA or other multi-stage operations,
 ### you'll need to use Pipelines. For more info:
 ### http://scikit-learn.org/stable/modules/pipeline.html
+
+from numpy import arange
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import Imputer
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import RobustScaler
 from sklearn.feature_selection import SelectKBest
-from sklearn.feature_selection import SelectFromModel
+from sklearn.feature_selection import SelectPercentile
 from sklearn.decomposition import PCA
-from sklearn.model_selection import StratifiedShuffleSplit # Todo Implement
+from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.model_selection import train_test_split
 
-# scale features
-#features = StandardScaler().fit_transform(features)
-features = StandardScaler().fit_transform(features)
-
-# perform train-test split
-features_train, features_test, labels_train, labels_test = train_test_split(features, labels, test_size=0.2, random_state=42)
+# Preprocess features
+#features = Imputer(strategy="median").fit_transform(features)
 
 # base clf
-from sklearn.linear_model import LinearRegression
 from sklearn.naive_bayes import GaussianNB
-from sklearn.linear_model import LinearRegression
 
 pipe1 = Pipeline([
-    ("nb", GaussianNB()) # provided as base clf
+    ("clf", GaussianNB()) # provided as base clf
 ])
 
-
-# clf with feature selection
-# http://scikit-learn.org/stable/modules/feature_selection.html#univariate-feature-selection
-
+# clf selection with grid search
+from sklearn.model_selection import GridSearchCV
+from sklearn.svm import SVC
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.tree import DecisionTreeClassifier
 
-pipe2a = Pipeline([
-    #("feautre_selection", SelectKBest(k=4)),
-    ("clf", RandomForestClassifier())
+# Define scalers for pipe
+ss = StandardScaler()
+mms = MinMaxScaler()
+rs = RobustScaler()
+
+# Define features selection for pipe
+kbest = SelectKBest(k=9)
+pbest = SelectPercentile(percentile=20)
+pca = PCA(n_components=5)
+
+# Define clfs for pipe nb, svc, knn, rf and ada
+nb = GaussianNB()
+svc = SVC()
+knn = KNeighborsClassifier()
+rf = RandomForestClassifier()
+ada = AdaBoostClassifier()
+
+# pipe for gs1
+pipe_gs = Pipeline([
+    ("scaler", None),
+    ("feature_selection", None),
+    ("clf", nb)
 ])
 
-#
-from sklearn.linear_model import LogisticRegressionCV
+# set params for grid search
+params = {
+    "scaler": [ss, mms, rs],
+    "feature_selection": [kbest, pbest, pca],
+    "clf": [nb, svc, knn, rf, ada]
+}
 
-cv = StratifiedShuffleSplit(n_splits=10)
-pipe2b = Pipeline([
-    ("log_reg", LogisticRegressionCV(cv=cv, solver="liblinear")) # provided as base clf
-])
+# define cv for grid search
+cv = StratifiedShuffleSplit(n_splits=10, random_state=42)
 
+gs = GridSearchCV(pipe_gs, param_grid=params, cv=cv, scoring="f1", n_jobs=3)
+#gs.fit(features, labels)
+#print(gs.best_params_)
 
-### Task 5: Tune your classifier to achieve better than .3 precision and recall ToDo implement gridsearch
+### Task 5: Tune your classifier to achieve better than .3 precision and recall
 ### using our testing script. Check the tester.py script in the final project
 ### folder for details on the evaluation method, especially the test_classifier
 ### function. Because of the small size of the dataset, the script uses
 ### stratified shuffle split cross validation. For more info: 
 ### http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.StratifiedShuffleSplit.html
-from sklearn.model_selection import GridSearchCV
 
-clf = RandomForestClassifier()
-params = {
-    "max_depth": range(1,20+1,1),
-    "min_samples_leaf": range(1,20+1,1),
-  }
+# define hyperparameters to be tuned
 
-gs = GridSearchCV(clf, param_grid=params, cv=cv, n_jobs=3)
-#gs.fit(features, labels)
+# params for ada
+params2 = {
+    "ada__n_estimators": range(10, 100+1, 5),
+    "ada__learning_rate": [0.1, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]
+}
 
-#print(gs.best_params_)
+# params for rf
+# params2 = {
+#     "rf__n_estimators": range(1, 100+1, 5),
+#     "rf__max_depth": range(2, 100+1, 5)
+# }
 
+# pipe for gs2
+pipe_gs2 = Pipeline([
+    ("scaler", None), # rs determined by gs1
+    ("feature_selection", kbest), # kbest determined by gs1
+    ("ada", ada) # ada determined by gs1
+    #("rf", rf)
+])
 
-# Example starting point. Try investigating other evaluation techniques!
+# hyperparameter tuning via grid search
+gs2 = GridSearchCV(pipe_gs2, param_grid=params2, cv=cv, scoring="f1", n_jobs=3)
+#gs2.fit(features, labels)
+#print(gs2.best_params_)
+
+# pipe for prediction
+pipe2 = Pipeline([
+    ("scaler", None), # None, because scaling not necessary with trees
+    ("feautre_selection", kbest),
+    ("clf", ada)
+     #("clf", rf) # ada
+])
+
+# set params found by gs2
+pipe2.set_params(clf__n_estimators=21, clf__learning_rate=0.8) # n_estimators = 21, learning_rate = 0.8
+#pipe2.set_params(clf__max_depth=82, clf__n_estimators=6) # max_depth = 82, n_estimators = 6
+
+# train-test split for prediction
+features_train, features_test, labels_train, labels_test = \
+    train_test_split(features, labels, test_size=0.3, random_state=42)
+
 # fit clf
-
-#clf = pipe2c
-clf = RandomForestClassifier(max_depth=4, min_samples_leaf=2) # max_depth = 4, min_samples_leaf = 2
-
-clf.fit(features_train, labels_train)
+clf = pipe2
 #clf.fit(features, labels)
+clf.fit(features_train, labels_train)
 
 # predict results
 pred = clf.predict(features_test)
-#pred = clf.predict(features)
 
-# print precision and recall score
-from sklearn.metrics import precision_score, recall_score, classification_report
-#print "precision: %f" % precision_score(pred, labels_test) # base score: 0.4
-#print "recall: %f" % recall_score(pred, labels_test) # base score: 0.4
-print classification_report(labels_test, pred)
-#print classification_report(labels, pred)
+# print scores
+from sklearn.metrics import classification_report
+
+#print classification_report(labels, pred) # base clf f1: 0.41, tuned ada f1: 0.77, tuned rf f1: 0.81 (all for poi=1.0)
+print(classification_report(labels_test, pred)) # rf: (0.29 poi=1.0, 0.82 total), ada: (0.29 for poi=1.0, 0.77 total)
 
 ### Task 6: Dump your classifier, dataset, and features_list so anyone can
 ### check your results. You do not need to change anything below, but make sure
 ### that the version of poi_id.py that you submit can be run on its own and
 ### generates the necessary .pkl files for validating your results.
 dump_classifier_and_data(clf, my_dataset, features_list)
+
+# run clf against tester
+from tester import test_classifier
+test_classifier(clf, my_dataset, features_list) # rf f1: 0.126, ada f1: 0.269
