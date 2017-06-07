@@ -66,7 +66,7 @@ from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.model_selection import train_test_split
 
 # Preprocess features
-#features = Imputer(strategy="median").fit_transform(features)
+features = Imputer(strategy="median").fit_transform(features)
 
 # base clf
 from sklearn.naive_bayes import GaussianNB
@@ -117,7 +117,7 @@ params = {
 # define cv for grid search
 cv = StratifiedShuffleSplit(n_splits=10, random_state=42)
 
-gs = GridSearchCV(pipe_gs, param_grid=params, cv=cv, scoring="f1", n_jobs=3)
+gs = GridSearchCV(pipe_gs, param_grid=params, cv=cv, scoring="f1_micro", n_jobs=-1) #f1
 #gs.fit(features, labels)
 #print(gs.best_params_)
 
@@ -131,41 +131,46 @@ gs = GridSearchCV(pipe_gs, param_grid=params, cv=cv, scoring="f1", n_jobs=3)
 # define hyperparameters to be tuned
 
 # params for ada
-params2 = {
-    "ada__n_estimators": range(10, 100+1, 5),
-    "ada__learning_rate": [0.1, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]
-}
+# params2 = {
+#     "ada__n_estimators": range(10, 100+1, 5),
+#     "ada__learning_rate": [0.1, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]
+# }
 
 # params for rf
-# params2 = {
-#     "rf__n_estimators": range(1, 100+1, 5),
-#     "rf__max_depth": range(2, 100+1, 5)
-# }
+params2 = {
+    "rf__n_estimators": range(1, 50+1, 10),
+    "rf__max_depth": range(2, 20+1, 5),
+    "rf__min_samples_split": [2, 4, 8, 10],
+    #"rf__min_samples_leaf": range(2, 10+1, 2),
+    "rf__max_leaf_nodes": range(2, 10+1, 2),
+}
 
 # pipe for gs2
 pipe_gs2 = Pipeline([
-    ("scaler", None), # rs determined by gs1
-    ("feature_selection", kbest), # kbest determined by gs1
-    ("ada", ada) # ada determined by gs1
-    #("rf", rf)
+    ("scaler", ss), # rs determined by gs1
+    ("feature_selection", pbest), # kbest determined by gs1
+    #("ada", ada) # ada determined by gs1
+    ("rf", rf)
 ])
 
 # hyperparameter tuning via grid search
-gs2 = GridSearchCV(pipe_gs2, param_grid=params2, cv=cv, scoring="f1", n_jobs=3)
+gs2 = GridSearchCV(pipe_gs2, param_grid=params2, cv=cv, scoring="f1_micro", n_jobs=-1) # f1
+#gs2.set_params(rf__verbose=1, rf__class_weight= {0: 0.3, 1: 0.7})
 #gs2.fit(features, labels)
 #print(gs2.best_params_)
 
 # pipe for prediction
 pipe2 = Pipeline([
     ("scaler", None), # None, because scaling not necessary with trees
-    ("feautre_selection", kbest),
-    ("clf", ada)
-     #("clf", rf) # ada
+    ("feautre_selection", pbest),
+    #("clf", ada)
+     ("clf", rf) # ada
 ])
 
 # set params found by gs2
-pipe2.set_params(clf__n_estimators=21, clf__learning_rate=0.8) # n_estimators = 21, learning_rate = 0.8
-#pipe2.set_params(clf__max_depth=82, clf__n_estimators=6) # max_depth = 82, n_estimators = 6
+#pipe2.set_params(clf__n_estimators=21, clf__learning_rate=0.8) # n_estimators = 21, learning_rate = 0.8
+pipe2.set_params(clf__min_samples_split=4, clf__max_depth=12, clf__n_estimators=21,
+                 clf__class_weight={0.0: 0.45, 1.0: 0.55})
 
 # train-test split for prediction
 features_train, features_test, labels_train, labels_test = \
@@ -185,6 +190,28 @@ from sklearn.metrics import classification_report
 #print classification_report(labels, pred) # base clf f1: 0.41, tuned ada f1: 0.77, tuned rf f1: 0.81 (all for poi=1.0)
 print(classification_report(labels_test, pred)) # rf: (0.29 poi=1.0, 0.82 total), ada: (0.29 for poi=1.0, 0.77 total)
 
+# custom score function
+def custom_score(est=clf, features=features_test, labels=labels_test):
+    """
+    Take scikit-learn estimator, features and labels, predict results and return score
+    :param est: scikit-learn estimator
+    :param features:  input features
+    :param labels: input labels
+    :return: scikit-learn f1 score if precision score and recall > 0.3 else 0
+    """
+    from sklearn.metrics import precision_score, recall_score, f1_score
+
+    pred = est.predict(features)
+    pre = precision_score(labels, pred, average='micro')
+    rec = recall_score(labels, pred, average='micro')
+
+    if pre > 0.3 and rec > 0.3:
+        return f1_score(labels, pred, average='macro')
+    else:
+        return 0
+
+#print(custom_score())
+
 ### Task 6: Dump your classifier, dataset, and features_list so anyone can
 ### check your results. You do not need to change anything below, but make sure
 ### that the version of poi_id.py that you submit can be run on its own and
@@ -192,5 +219,6 @@ print(classification_report(labels_test, pred)) # rf: (0.29 poi=1.0, 0.82 total)
 dump_classifier_and_data(clf, my_dataset, features_list)
 
 # run clf against tester
+# ToDo: https://discussions.udacity.com/t/trying-to-hit-over-0-3/196167/27
 from tester import test_classifier
-test_classifier(clf, my_dataset, features_list) # rf f1: 0.126, ada f1: 0.269
+test_classifier(clf, my_dataset, features_list)
