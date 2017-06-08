@@ -18,7 +18,7 @@ with open("final_project_dataset.pkl", "r") as data_file:
 # select feature based on intuition
 #features_list = ["poi", "bonus", "exercised_stock_options", "from_poi_to_this_person", "long_term_incentive", "shared_receipt_with_poi", "total_stock_value"]
 
-# start with all features and do selection via statistcal technique
+# start with all features and do selection via feature selection technique
 features_list = ["poi", 'salary', 'deferral_payments', 'total_payments', 'loan_advances', 'bonus',
                 'restricted_stock_deferred', 'deferred_income', 'total_stock_value', 'expenses',
                 'exercised_stock_options', 'other', 'long_term_incentive', 'restricted_stock', 'director_fees',
@@ -30,15 +30,16 @@ features_list = ["poi", 'salary', 'deferral_payments', 'total_payments', 'loan_a
 # remove TOTAL and travel agency lines
 data_dict.pop("TOTAL", 0)
 data_dict.pop("THE TRAVEL AGENCY IN THE PARK", 0)
+
+# remove observation with all NaN values
 data_dict.pop("LOCKHART EUGENE E", 0)
 
 # remove outliers identified during analysis
 #data_dict.pop("LAY KENNETH L", 0)
 #data_dict.pop("SKILLING JEFFREY K", 0)
 
-
 ### Task 3: Create new feature(s)
-# see jupyter notebook
+# see jupyter notebook poi_id.ipynb
 
 ### Store to my_dataset for easy export below.
 my_dataset = data_dict
@@ -65,7 +66,7 @@ from sklearn.decomposition import PCA
 from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.model_selection import train_test_split
 
-# Preprocess features
+# preprocess features
 features = Imputer(strategy="median").fit_transform(features)
 
 # base clf
@@ -81,19 +82,18 @@ from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import AdaBoostClassifier
-from sklearn.tree import DecisionTreeClassifier
 
-# Define scalers for pipe
+# define scalers for pipe
 ss = StandardScaler()
 mms = MinMaxScaler()
 rs = RobustScaler()
 
-# Define features selection for pipe
+# define features selection for pipe
 kbest = SelectKBest(k=9)
 pbest = SelectPercentile(percentile=20)
 pca = PCA(n_components=5)
 
-# Define clfs for pipe nb, svc, knn, rf and ada
+# define clfs for pipe nb, svc, knn, rf and ada
 nb = GaussianNB()
 svc = SVC()
 knn = KNeighborsClassifier()
@@ -117,7 +117,7 @@ params = {
 # define cv for grid search
 cv = StratifiedShuffleSplit(n_splits=10, random_state=42)
 
-gs = GridSearchCV(pipe_gs, param_grid=params, cv=cv, scoring="f1_micro", n_jobs=-1) #f1
+gs = GridSearchCV(pipe_gs, param_grid=params, cv=cv, scoring="f1_micro", n_jobs=-1)
 #gs.fit(features, labels)
 #print(gs.best_params_)
 
@@ -141,34 +141,32 @@ params2 = {
     "rf__n_estimators": range(1, 50+1, 10),
     "rf__max_depth": range(2, 20+1, 5),
     "rf__min_samples_split": [2, 4, 8, 10],
-    #"rf__min_samples_leaf": range(2, 10+1, 2),
     "rf__max_leaf_nodes": range(2, 10+1, 2),
 }
 
 # pipe for gs2
 pipe_gs2 = Pipeline([
-    ("scaler", ss), # rs determined by gs1
-    ("feature_selection", pbest), # kbest determined by gs1
-    #("ada", ada) # ada determined by gs1
+    ("scaler", None), # rs determined by gs1, but not needed for trees
+    ("feature_selection", pbest), # pbest determined by gs1
+    #("ada", ada) # ada als alternative
     ("rf", rf)
 ])
 
 # hyperparameter tuning via grid search
-gs2 = GridSearchCV(pipe_gs2, param_grid=params2, cv=cv, scoring="f1_micro", n_jobs=-1) # f1
-#gs2.set_params(rf__verbose=1, rf__class_weight= {0: 0.3, 1: 0.7})
+gs2 = GridSearchCV(pipe_gs2, param_grid=params2, cv=cv, scoring="f1_micro", n_jobs=-1)
 #gs2.fit(features, labels)
 #print(gs2.best_params_)
 
 # pipe for prediction
 pipe2 = Pipeline([
     ("scaler", None), # None, because scaling not necessary with trees
-    ("feautre_selection", pbest),
+    ("feature_selection", pbest),
     #("clf", ada)
-     ("clf", rf) # ada
+     ("clf", rf)
 ])
 
 # set params found by gs2
-#pipe2.set_params(clf__n_estimators=21, clf__learning_rate=0.8) # n_estimators = 21, learning_rate = 0.8
+#pipe2.set_params(clf__n_estimators=21, clf__learning_rate=0.8) # for ada
 pipe2.set_params(clf__min_samples_split=4, clf__max_depth=12, clf__n_estimators=21,
                  clf__class_weight={0.0: 0.45, 1.0: 0.55})
 
@@ -184,33 +182,17 @@ clf.fit(features_train, labels_train)
 # predict results
 pred = clf.predict(features_test)
 
+# print pipeline attributes
+print("feature scores from pbest: ", sorted(clf.named_steps["feature_selection"].scores_, reverse=True))
+print("number of features used by clf: ", clf.named_steps["clf"].n_features_)
+print("feature importance: ", sorted(clf.named_steps["clf"].feature_importances_, reverse=True))
+
 # print scores
 from sklearn.metrics import classification_report
 
-#print classification_report(labels, pred) # base clf f1: 0.41, tuned ada f1: 0.77, tuned rf f1: 0.81 (all for poi=1.0)
-print(classification_report(labels_test, pred)) # rf: (0.29 poi=1.0, 0.82 total), ada: (0.29 for poi=1.0, 0.77 total)
+#print classification_report(labels, pred)
+print(classification_report(labels_test, pred)) #rf poi: precision: 0.29, recall: 0.40, f1: 0.33
 
-# custom score function
-def custom_score(est=clf, features=features_test, labels=labels_test):
-    """
-    Take scikit-learn estimator, features and labels, predict results and return score
-    :param est: scikit-learn estimator
-    :param features:  input features
-    :param labels: input labels
-    :return: scikit-learn f1 score if precision score and recall > 0.3 else 0
-    """
-    from sklearn.metrics import precision_score, recall_score, f1_score
-
-    pred = est.predict(features)
-    pre = precision_score(labels, pred, average='micro')
-    rec = recall_score(labels, pred, average='micro')
-
-    if pre > 0.3 and rec > 0.3:
-        return f1_score(labels, pred, average='macro')
-    else:
-        return 0
-
-#print(custom_score())
 
 ### Task 6: Dump your classifier, dataset, and features_list so anyone can
 ### check your results. You do not need to change anything below, but make sure
@@ -218,7 +200,6 @@ def custom_score(est=clf, features=features_test, labels=labels_test):
 ### generates the necessary .pkl files for validating your results.
 dump_classifier_and_data(clf, my_dataset, features_list)
 
-# run clf against tester
-# ToDo: https://discussions.udacity.com/t/trying-to-hit-over-0-3/196167/27
+# run clf against tester # rf: precision: 0.48, recall: 0.26, f1: 0.34
 from tester import test_classifier
 test_classifier(clf, my_dataset, features_list)
