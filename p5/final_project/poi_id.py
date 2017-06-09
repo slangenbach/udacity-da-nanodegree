@@ -15,10 +15,10 @@ with open("final_project_dataset.pkl", "r") as data_file:
 ### features_list is a list of strings, each of which is a feature name.
 ### The first feature must be "poi".
 
-# select feature based on intuition
+# strategy 1: select feature based on intuition
 #features_list = ["poi", "bonus", "exercised_stock_options", "from_poi_to_this_person", "long_term_incentive", "shared_receipt_with_poi", "total_stock_value"]
 
-# start with all features and do selection via feature selection technique
+# strategy 2: start with all features and do selection via feature selection technique
 features_list = ["poi", 'salary', 'deferral_payments', 'total_payments', 'loan_advances', 'bonus',
                 'restricted_stock_deferred', 'deferred_income', 'total_stock_value', 'expenses',
                 'exercised_stock_options', 'other', 'long_term_incentive', 'restricted_stock', 'director_fees',
@@ -34,12 +34,38 @@ data_dict.pop("THE TRAVEL AGENCY IN THE PARK", 0)
 # remove observation with all NaN values
 data_dict.pop("LOCKHART EUGENE E", 0)
 
-# remove outliers identified during analysis
-#data_dict.pop("LAY KENNETH L", 0)
-#data_dict.pop("SKILLING JEFFREY K", 0)
-
 ### Task 3: Create new feature(s)
-# see jupyter notebook poi_id.ipynb
+def add_own_features(data_dict=data_dict, features_list=features_list):
+    """
+    Take dict, convert it to pandas data frame, replace NaN values with 0 and add two features.
+    Append feature labels to feature_list and return data frame as dict
+    :param data_dict: input dict
+    :return: input dict with two additional features
+    """
+    import pandas as pd
+
+    # convert dict into df
+    df = pd.DataFrame.from_dict(data_dict, orient="index")
+
+    # replace NaN strings with 0
+    df.replace(to_replace="NaN", value=0, inplace=True)
+
+    # create performance compensation feature
+    df["performance_compensation"] = df["bonus"] + df["exercised_stock_options"] + df["total_stock_value"]
+
+    # create poi communication feature
+    df["poi_communication"] = (df["from_poi_to_this_person"] + df["from_this_person_to_poi"]) \
+                              / (df["from_messages"] + df["to_messages"] + 1)
+
+    # add new features to feature list
+    features_list.append("performance_compensation")
+    features_list.append("poi_communication")
+
+    # return df as dict
+    return df.to_dict(orient="index")
+
+# include new features in final analysis
+data_dict = add_own_features()
 
 ### Store to my_dataset for easy export below.
 my_dataset = data_dict
@@ -54,7 +80,6 @@ labels, features = targetFeatureSplit(data)
 ### you'll need to use Pipelines. For more info:
 ### http://scikit-learn.org/stable/modules/pipeline.html
 
-from numpy import arange
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import Imputer
 from sklearn.preprocessing import StandardScaler
@@ -66,7 +91,7 @@ from sklearn.decomposition import PCA
 from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.model_selection import train_test_split
 
-# preprocess features
+# pre-process features
 features = Imputer(strategy="median").fit_transform(features)
 
 # base clf
@@ -128,15 +153,7 @@ gs = GridSearchCV(pipe_gs, param_grid=params, cv=cv, scoring="f1_micro", n_jobs=
 ### stratified shuffle split cross validation. For more info: 
 ### http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.StratifiedShuffleSplit.html
 
-# define hyperparameters to be tuned
-
-# params for ada
-# params2 = {
-#     "ada__n_estimators": range(10, 100+1, 5),
-#     "ada__learning_rate": [0.1, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]
-# }
-
-# params for rf
+# define hyper-parameters to be tuned
 params2 = {
     "rf__n_estimators": range(1, 50+1, 10),
     "rf__max_depth": range(2, 20+1, 5),
@@ -148,7 +165,7 @@ params2 = {
 pipe_gs2 = Pipeline([
     ("scaler", None), # rs determined by gs1, but not needed for trees
     ("feature_selection", pbest), # pbest determined by gs1
-    #("ada", ada) # ada als alternative
+    #("ada", ada) # ada als alternative to rf
     ("rf", rf)
 ])
 
@@ -161,13 +178,13 @@ gs2 = GridSearchCV(pipe_gs2, param_grid=params2, cv=cv, scoring="f1_micro", n_jo
 pipe2 = Pipeline([
     ("scaler", None), # None, because scaling not necessary with trees
     ("feature_selection", pbest),
-    #("clf", ada)
      ("clf", rf)
 ])
 
 # set params found by gs2
-#pipe2.set_params(clf__n_estimators=21, clf__learning_rate=0.8) # for ada
-pipe2.set_params(clf__min_samples_split=4, clf__max_depth=12, clf__n_estimators=21,
+pipe2.set_params(clf__min_samples_split=4,
+                 clf__max_depth=12,
+                 clf__n_estimators=21,
                  clf__class_weight={0.0: 0.45, 1.0: 0.55})
 
 # train-test split for prediction
@@ -176,23 +193,25 @@ features_train, features_test, labels_train, labels_test = \
 
 # fit clf
 clf = pipe2
-#clf.fit(features, labels)
 clf.fit(features_train, labels_train)
 
 # predict results
 pred = clf.predict(features_test)
 
-# print pipeline attributes
-print("feature scores from pbest: ", sorted(clf.named_steps["feature_selection"].scores_, reverse=True))
+# print feature scores
+feature_names = list(features_list) # create a copy of features_list
+feature_names.pop(0) # remove poi since it is not a feature
+feature_scores = clf.named_steps["feature_selection"].scores_
+feature_dict = dict(zip(feature_names, feature_scores))
+print("feature scores: ", sorted(feature_dict.items(), key=lambda x:x[1], reverse=True)) # ordered by scores
+
+# print clf feature scores and importance
 print("number of features used by clf: ", clf.named_steps["clf"].n_features_)
 print("feature importance: ", sorted(clf.named_steps["clf"].feature_importances_, reverse=True))
 
-# print scores
+# print classification report
 from sklearn.metrics import classification_report
-
-#print classification_report(labels, pred)
-print(classification_report(labels_test, pred)) #rf poi: precision: 0.29, recall: 0.40, f1: 0.33
-
+print(classification_report(labels_test, pred)) #rf poi: precision: 0.40, recall: 0.40, f1: 0.40
 
 ### Task 6: Dump your classifier, dataset, and features_list so anyone can
 ### check your results. You do not need to change anything below, but make sure
@@ -200,6 +219,6 @@ print(classification_report(labels_test, pred)) #rf poi: precision: 0.29, recall
 ### generates the necessary .pkl files for validating your results.
 dump_classifier_and_data(clf, my_dataset, features_list)
 
-# run clf against tester # rf: precision: 0.48, recall: 0.26, f1: 0.34
+# run clf against tester # rf: precision: 0.54, recall: 0.31, f1: 0.40
 from tester import test_classifier
 test_classifier(clf, my_dataset, features_list)
