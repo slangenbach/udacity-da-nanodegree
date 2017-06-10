@@ -1,12 +1,3 @@
-enron_mail_20110402/maildir/hain-m/all_documents/1064.
-enron_mail_20110402/maildir/hain-m/all_documents/687.
-enron_mail_20110402/maildir/hain-m/all_documents/793.
-enron_mail_20110402/maildir/hain-m/all_documents/893.
-enron_mail_20110402/maildir/hain-m/discussion_threads/242.
-enron_mail_20110402/maildir/hain-m/discussion_threads/393.
-enron_mail_20110402/maildir/hain-m/discussion_threads/481.
-enron_mail_20110402/maildir/hain-m/discussion_threads/585.
-enron_mail_20110402/maildir/hain-m/notes_inbox/578.
-enron_mail_20110402/maildir/hain-m/notes_inbox/675.
-enron_mail_20110402/maildir/hain-m/notes_inbox/755.
-enron_mail_20110402/maildir/hain-m/notes_inbox/843.
+version https://git-lfs.github.com/spec/v1
+oid sha256:98fc6a9e7c99c28a417b0fd731b7d692b17c9adf7a44d7ab3f7576ba736f880c
+size 661

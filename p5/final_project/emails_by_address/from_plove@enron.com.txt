@@ -1,12 +1,3 @@
-enron_mail_20110402/maildir/bass-e/all_documents/113.
-enron_mail_20110402/maildir/bass-e/all_documents/114.
-enron_mail_20110402/maildir/bass-e/all_documents/115.
-enron_mail_20110402/maildir/bass-e/discussion_threads/1155.
-enron_mail_20110402/maildir/bass-e/discussion_threads/1156.
-enron_mail_20110402/maildir/bass-e/discussion_threads/1157.
-enron_mail_20110402/maildir/bass-e/notes_inbox/97.
-enron_mail_20110402/maildir/bass-e/notes_inbox/98.
-enron_mail_20110402/maildir/bass-e/notes_inbox/99.
-enron_mail_20110402/maildir/giron-d/all_documents/42.
-enron_mail_20110402/maildir/giron-d/discussion_threads/598.
-enron_mail_20110402/maildir/giron-d/notes_inbox/25.
+version https://git-lfs.github.com/spec/v1
+oid sha256:08f317c6ce68d8fec62d585d8c15f4b76c2d4b32192014c5d8c93f67559efb99
+size 661

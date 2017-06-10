@@ -1,11 +1,3 @@
-enron_mail_20110402/maildir/mann-k/all_documents/3990.
-enron_mail_20110402/maildir/mann-k/discussion_threads/2783.
-enron_mail_20110402/maildir/mann-k/westinghouse/46.
-enron_mail_20110402/maildir/weldon-c/all_documents/286.
-enron_mail_20110402/maildir/weldon-c/all_documents/290.
-enron_mail_20110402/maildir/weldon-c/discussion_threads/184.
-enron_mail_20110402/maildir/weldon-c/discussion_threads/188.
-enron_mail_20110402/maildir/weldon-c/ft__pierce/32.
-enron_mail_20110402/maildir/weldon-c/ft__pierce/34.
-enron_mail_20110402/maildir/weldon-c/ft__pierce/86.
-enron_mail_20110402/maildir/weldon-c/ft__pierce/88.
+version https://git-lfs.github.com/spec/v1
+oid sha256:33b5a1d23bd524058dda73ad753f054485cb4661355eeccb3ab70ea3f792a827
+size 609

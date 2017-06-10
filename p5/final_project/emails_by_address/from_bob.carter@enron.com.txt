@@ -1,18 +1,3 @@
-enron_mail_20110402/maildir/haedicke-m/all_documents/2098.
-enron_mail_20110402/maildir/haedicke-m/all_documents/2381.
-enron_mail_20110402/maildir/haedicke-m/all_documents/2418.
-enron_mail_20110402/maildir/haedicke-m/notes_inbox/220.
-enron_mail_20110402/maildir/haedicke-m/notes_inbox/402.
-enron_mail_20110402/maildir/haedicke-m/notes_inbox/435.
-enron_mail_20110402/maildir/mann-k/all_documents/1019.
-enron_mail_20110402/maildir/mann-k/all_documents/2344.
-enron_mail_20110402/maildir/mann-k/all_documents/4246.
-enron_mail_20110402/maildir/mann-k/all_documents/4894.
-enron_mail_20110402/maildir/mann-k/discussion_threads/1651.
-enron_mail_20110402/maildir/mann-k/discussion_threads/2963.
-enron_mail_20110402/maildir/mann-k/discussion_threads/3395.
-enron_mail_20110402/maildir/mann-k/discussion_threads/716.
-enron_mail_20110402/maildir/mann-k/ge_general/77.
-enron_mail_20110402/maildir/mann-k/general_stuff/112.
-enron_mail_20110402/maildir/mann-k/general_stuff/22.
-enron_mail_20110402/maildir/mann-k/general_stuff/60.
+version https://git-lfs.github.com/spec/v1
+oid sha256:0301a008fe586a66d32ab74914aa0869eb0b67f4b6d97154b59c5f29151d9d95
+size 1014

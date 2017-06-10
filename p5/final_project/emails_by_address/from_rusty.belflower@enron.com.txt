@@ -1,11 +1,3 @@
-enron_mail_20110402/maildir/nemec-g/all_documents/2139.
-enron_mail_20110402/maildir/nemec-g/all_documents/2141.
-enron_mail_20110402/maildir/nemec-g/all_documents/6023.
-enron_mail_20110402/maildir/nemec-g/all_documents/6135.
-enron_mail_20110402/maildir/nemec-g/all_documents/6356.
-enron_mail_20110402/maildir/nemec-g/inbox/720.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/1123.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/1125.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/1222.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/1371.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/1449.
+version https://git-lfs.github.com/spec/v1
+oid sha256:e83639183b1142435bf5788e6c4b994a6d8e05ab30cd474be6f5116acc3e9f96
+size 597

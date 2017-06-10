@@ -1,13 +1,3 @@
-enron_mail_20110402/maildir/davis-d/all_documents/191.
-enron_mail_20110402/maildir/davis-d/finanial_operations/8.
-enron_mail_20110402/maildir/farmer-d/logistics/34.
-enron_mail_20110402/maildir/martin-t/inbox/150.
-enron_mail_20110402/maildir/martin-t/inbox/157.
-enron_mail_20110402/maildir/martin-t/inbox/341.
-enron_mail_20110402/maildir/neal-s/deleted_items/256.
-enron_mail_20110402/maildir/neal-s/deleted_items/258.
-enron_mail_20110402/maildir/tycholiz-b/deleted_items/102.
-enron_mail_20110402/maildir/tycholiz-b/deleted_items/98.
-enron_mail_20110402/maildir/tycholiz-b/inbox/179.
-enron_mail_20110402/maildir/tycholiz-b/inbox/241.
-enron_mail_20110402/maildir/tycholiz-b/inbox/287.
+version https://git-lfs.github.com/spec/v1
+oid sha256:c7bb2cf98687c491592a28e8d32f1cd639a455fb1e75eaf3e314978048e98264
+size 682

@@ -1,21 +1,3 @@
-enron_mail_20110402/maildir/hyatt-k/deleted_items/166.
-enron_mail_20110402/maildir/hyatt-k/deleted_items/167.
-enron_mail_20110402/maildir/hyatt-k/projects/109.
-enron_mail_20110402/maildir/hyatt-k/projects/110.
-enron_mail_20110402/maildir/nemec-g/calendar/14.
-enron_mail_20110402/maildir/nemec-g/inbox/1098.
-enron_mail_20110402/maildir/nemec-g/inbox/1109.
-enron_mail_20110402/maildir/nemec-g/inbox/1110.
-enron_mail_20110402/maildir/nemec-g/inbox/1206.
-enron_mail_20110402/maildir/nemec-g/inbox/1207.
-enron_mail_20110402/maildir/nemec-g/inbox/1297.
-enron_mail_20110402/maildir/nemec-g/inbox/271.
-enron_mail_20110402/maildir/nemec-g/inbox/280.
-enron_mail_20110402/maildir/nemec-g/inbox/293.
-enron_mail_20110402/maildir/nemec-g/inbox/862.
-enron_mail_20110402/maildir/nemec-g/inbox/863.
-enron_mail_20110402/maildir/nemec-g/inbox/873.
-enron_mail_20110402/maildir/nemec-g/inbox/876.
-enron_mail_20110402/maildir/weldon-c/deleted_items/102.
-enron_mail_20110402/maildir/weldon-c/deleted_items/148.
-enron_mail_20110402/maildir/weldon-c/stagecoach/3.
+version https://git-lfs.github.com/spec/v1
+oid sha256:6963cd4c1c6b9a8683a8c3152ebde3732455be7755a233938495712945575b76
+size 1039

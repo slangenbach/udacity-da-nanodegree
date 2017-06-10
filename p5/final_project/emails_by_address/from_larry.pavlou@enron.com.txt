@@ -1,11 +1,3 @@
-enron_mail_20110402/maildir/watson-k/inbox/342.
-enron_mail_20110402/maildir/watson-k/nymex_prices/1.
-enron_mail_20110402/maildir/watson-k/nymex_prices/10.
-enron_mail_20110402/maildir/watson-k/nymex_prices/2.
-enron_mail_20110402/maildir/watson-k/nymex_prices/3.
-enron_mail_20110402/maildir/watson-k/nymex_prices/4.
-enron_mail_20110402/maildir/watson-k/nymex_prices/5.
-enron_mail_20110402/maildir/watson-k/nymex_prices/6.
-enron_mail_20110402/maildir/watson-k/nymex_prices/7.
-enron_mail_20110402/maildir/watson-k/nymex_prices/8.
-enron_mail_20110402/maildir/watson-k/nymex_prices/9.
+version https://git-lfs.github.com/spec/v1
+oid sha256:263f3fb4344720361f900ca35fe0d709a4e94a23b990ee1fcc91fad142228996
+size 579

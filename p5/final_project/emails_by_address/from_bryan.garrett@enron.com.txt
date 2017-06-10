@@ -1,13 +1,3 @@
-enron_mail_20110402/maildir/benson-r/calendar/5.
-enron_mail_20110402/maildir/carson-m/calendar/1.
-enron_mail_20110402/maildir/nemec-g/all_documents/826.
-enron_mail_20110402/maildir/nemec-g/all_documents/894.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/157.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/203.
-enron_mail_20110402/maildir/rogers-b/all_documents/1917.
-enron_mail_20110402/maildir/rogers-b/all_documents/951.
-enron_mail_20110402/maildir/rogers-b/ctg_deals/174.
-enron_mail_20110402/maildir/rogers-b/discussion_threads/1039.
-enron_mail_20110402/maildir/rogers-b/discussion_threads/168.
-enron_mail_20110402/maildir/rogers-b/personal/175.
-enron_mail_20110402/maildir/thomas-p/calendar/1.
+version https://git-lfs.github.com/spec/v1
+oid sha256:83a1d30b7f383402bd4e76ac097fe633895223fdeb7326afd90422e561ad3d09
+size 702

@@ -1,13 +1,3 @@
-enron_mail_20110402/maildir/love-p/central/74.
-enron_mail_20110402/maildir/white-s/deleted_items/450.
-enron_mail_20110402/maildir/white-s/deleted_items/500.
-enron_mail_20110402/maildir/white-s/deleted_items/589.
-enron_mail_20110402/maildir/white-s/deleted_items/770.
-enron_mail_20110402/maildir/white-s/deleted_items/786.
-enron_mail_20110402/maildir/white-s/deleted_items/888.
-enron_mail_20110402/maildir/white-s/inbox/136.
-enron_mail_20110402/maildir/white-s/inbox/139.
-enron_mail_20110402/maildir/white-s/inbox/247.
-enron_mail_20110402/maildir/white-s/inbox/338.
-enron_mail_20110402/maildir/white-s/inbox/61.
-enron_mail_20110402/maildir/white-s/inbox/95.
+version https://git-lfs.github.com/spec/v1
+oid sha256:3544b6b1fda46ce0c53c6395c75f0997499c3eaa72edc07094b51e329a0c1820
+size 657

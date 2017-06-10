@@ -1,11 +1,3 @@
-enron_mail_20110402/maildir/arnold-j/inbox/12.
-enron_mail_20110402/maildir/arnold-j/inbox/140.
-enron_mail_20110402/maildir/presto-k/calendar/9.
-enron_mail_20110402/maildir/zipper-a/deleted_items/444.
-enron_mail_20110402/maildir/zipper-a/deleted_items/445.
-enron_mail_20110402/maildir/zipper-a/deleted_items/449.
-enron_mail_20110402/maildir/zipper-a/origination/10.
-enron_mail_20110402/maildir/zipper-a/origination/11.
-enron_mail_20110402/maildir/zipper-a/origination/14.
-enron_mail_20110402/maildir/zipper-a/origination/15.
-enron_mail_20110402/maildir/zipper-a/origination/5.
+version https://git-lfs.github.com/spec/v1
+oid sha256:80a342c5476e13e6ad62b43a73bff3633631b40d6b70ec491825f7b98c61fbbf
+size 576

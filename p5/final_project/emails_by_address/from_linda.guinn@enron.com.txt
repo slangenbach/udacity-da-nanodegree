@@ -1,18 +1,3 @@
-enron_mail_20110402/maildir/sanders-r/all_documents/100.
-enron_mail_20110402/maildir/sanders-r/all_documents/2127.
-enron_mail_20110402/maildir/sanders-r/all_documents/2178.
-enron_mail_20110402/maildir/sanders-r/all_documents/2189.
-enron_mail_20110402/maildir/sanders-r/all_documents/330.
-enron_mail_20110402/maildir/sanders-r/all_documents/353.
-enron_mail_20110402/maildir/sanders-r/all_documents/5184.
-enron_mail_20110402/maildir/sanders-r/all_documents/5203.
-enron_mail_20110402/maildir/sanders-r/all_documents/5242.
-enron_mail_20110402/maildir/sanders-r/all_documents/94.
-enron_mail_20110402/maildir/sanders-r/ecogas/23.
-enron_mail_20110402/maildir/sanders-r/kafus/1.
-enron_mail_20110402/maildir/sanders-r/notes_inbox/177.
-enron_mail_20110402/maildir/sanders-r/notes_inbox/19.
-enron_mail_20110402/maildir/sanders-r/notes_inbox/194.
-enron_mail_20110402/maildir/sanders-r/notes_inbox/233.
-enron_mail_20110402/maildir/sanders-r/notes_inbox/38.
-enron_mail_20110402/maildir/sanders-r/notes_inbox/48.
+version https://git-lfs.github.com/spec/v1
+oid sha256:d2d5a50edf22e1911d792be6ab2a0d9cf6b517025b66fdb3e5301096b58a29f6
+size 998

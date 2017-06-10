@@ -1,15 +1,3 @@
-enron_mail_20110402/maildir/jones-t/all_documents/1702.
-enron_mail_20110402/maildir/jones-t/all_documents/2143.
-enron_mail_20110402/maildir/jones-t/all_documents/2149.
-enron_mail_20110402/maildir/jones-t/all_documents/2164.
-enron_mail_20110402/maildir/jones-t/all_documents/2364.
-enron_mail_20110402/maildir/jones-t/all_documents/2384.
-enron_mail_20110402/maildir/jones-t/notes_inbox/379.
-enron_mail_20110402/maildir/jones-t/notes_inbox/657.
-enron_mail_20110402/maildir/jones-t/notes_inbox/661.
-enron_mail_20110402/maildir/jones-t/notes_inbox/669.
-enron_mail_20110402/maildir/jones-t/notes_inbox/781.
-enron_mail_20110402/maildir/jones-t/notes_inbox/792.
-enron_mail_20110402/maildir/whalley-l/all_documents/679.
-enron_mail_20110402/maildir/whalley-l/discussion_threads/497.
-enron_mail_20110402/maildir/whalley-l/notes_inbox/335.
+version https://git-lfs.github.com/spec/v1
+oid sha256:766ee5118ad7d6a1a5c7c9b590db7b6cbb388445921954d1c347d927ddd41626
+size 828

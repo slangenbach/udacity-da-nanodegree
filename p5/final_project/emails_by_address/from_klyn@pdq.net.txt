@@ -1,16 +1,3 @@
-enron_mail_20110402/maildir/quigley-d/deleted_items/159.
-enron_mail_20110402/maildir/quigley-d/deleted_items/161.
-enron_mail_20110402/maildir/quigley-d/deleted_items/163.
-enron_mail_20110402/maildir/quigley-d/deleted_items/164.
-enron_mail_20110402/maildir/quigley-d/deleted_items/265.
-enron_mail_20110402/maildir/quigley-d/myfriends/116.
-enron_mail_20110402/maildir/quigley-d/myfriends/123.
-enron_mail_20110402/maildir/quigley-d/myfriends/136.
-enron_mail_20110402/maildir/quigley-d/myfriends/139.
-enron_mail_20110402/maildir/quigley-d/private_folders/ffl/1.
-enron_mail_20110402/maildir/quigley-d/private_folders/ffl/33.
-enron_mail_20110402/maildir/quigley-d/private_folders/ffl/5.
-enron_mail_20110402/maildir/quigley-d/private_folders/ffl/6.
-enron_mail_20110402/maildir/quigley-d/private_folders/ffl/7.
-enron_mail_20110402/maildir/quigley-d/private_folders/ffl/8.
-enron_mail_20110402/maildir/quigley-d/private_folders/ffl/9.
+version https://git-lfs.github.com/spec/v1
+oid sha256:403184c0b420e12ef4395ba403c4afd9add67f81e3e408df4fc60d834250ed0f
+size 925

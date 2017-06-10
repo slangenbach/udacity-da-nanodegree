@@ -1,16 +1,3 @@
-enron_mail_20110402/maildir/jones-t/all_documents/2237.
-enron_mail_20110402/maildir/jones-t/all_documents/2506.
-enron_mail_20110402/maildir/jones-t/notes_inbox/710.
-enron_mail_20110402/maildir/jones-t/notes_inbox/868.
-enron_mail_20110402/maildir/kaminski-v/all_documents/4420.
-enron_mail_20110402/maildir/kaminski-v/all_documents/5600.
-enron_mail_20110402/maildir/kaminski-v/all_documents/5620.
-enron_mail_20110402/maildir/kaminski-v/all_documents/5659.
-enron_mail_20110402/maildir/kaminski-v/c/technote/mail/projects/253.
-enron_mail_20110402/maildir/kaminski-v/discussion_threads/48.
-enron_mail_20110402/maildir/kaminski-v/discussion_threads/50.
-enron_mail_20110402/maildir/kaminski-v/discussion_threads/916.
-enron_mail_20110402/maildir/kaminski-v/discussion_threads/93.
-enron_mail_20110402/maildir/kaminski-v/resumes/469.
-enron_mail_20110402/maildir/kaminski-v/resumes/470.
-enron_mail_20110402/maildir/kaminski-v/resumes/475.
+version https://git-lfs.github.com/spec/v1
+oid sha256:0ef7fc435d74788e014dd77882f05b53846d2160e89c9ff7312fbb2178f25158
+size 928

@@ -1,15 +1,3 @@
-enron_mail_20110402/maildir/farmer-d/all_documents/1437.
-enron_mail_20110402/maildir/farmer-d/all_documents/1620.
-enron_mail_20110402/maildir/farmer-d/all_documents/1661.
-enron_mail_20110402/maildir/farmer-d/all_documents/1746.
-enron_mail_20110402/maildir/farmer-d/all_documents/2318.
-enron_mail_20110402/maildir/farmer-d/discussion_threads/1258.
-enron_mail_20110402/maildir/farmer-d/discussion_threads/1330.
-enron_mail_20110402/maildir/farmer-d/discussion_threads/1373.
-enron_mail_20110402/maildir/farmer-d/discussion_threads/1543.
-enron_mail_20110402/maildir/farmer-d/discussion_threads/722.
-enron_mail_20110402/maildir/farmer-d/logistics/1160.
-enron_mail_20110402/maildir/farmer-d/logistics/1187.
-enron_mail_20110402/maildir/farmer-d/logistics/1199.
-enron_mail_20110402/maildir/farmer-d/logistics/1247.
-enron_mail_20110402/maildir/farmer-d/logistics/914.
+version https://git-lfs.github.com/spec/v1
+oid sha256:eb957479ae64a5e0ca1aff10e15a04c2873d0115d5912d19c758c37263a12a6b
+size 858

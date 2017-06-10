@@ -1,13 +1,3 @@
-enron_mail_20110402/maildir/lucci-p/deleted_items/631.
-enron_mail_20110402/maildir/lucci-p/humor/2.
-enron_mail_20110402/maildir/lucci-p/humor/6.
-enron_mail_20110402/maildir/lucci-p/inbox/14.
-enron_mail_20110402/maildir/lucci-p/inbox/197.
-enron_mail_20110402/maildir/scott-s/inbox/275.
-enron_mail_20110402/maildir/staab-t/deleted_items/169.
-enron_mail_20110402/maildir/staab-t/deleted_items/282.
-enron_mail_20110402/maildir/staab-t/deleted_items/430.
-enron_mail_20110402/maildir/staab-t/inbox/27.
-enron_mail_20110402/maildir/staab-t/personal/10.
-enron_mail_20110402/maildir/whitt-m/deleted_items/43.
-enron_mail_20110402/maildir/whitt-m/inbox/134.
+version https://git-lfs.github.com/spec/v1
+oid sha256:748d046e105dc10222b79d17d8d8f21512876b0140e5504dfea3cd91ba0e2b73
+size 646

@@ -1,22 +1,3 @@
-enron_mail_20110402/maildir/hyvl-d/all_documents/379.
-enron_mail_20110402/maildir/hyvl-d/all_documents/382.
-enron_mail_20110402/maildir/hyvl-d/all_documents/388.
-enron_mail_20110402/maildir/hyvl-d/all_documents/605.
-enron_mail_20110402/maildir/hyvl-d/all_documents/652.
-enron_mail_20110402/maildir/hyvl-d/power_projects/guatemala/12.
-enron_mail_20110402/maildir/hyvl-d/power_projects/guatemala/13.
-enron_mail_20110402/maildir/hyvl-d/power_projects/guatemala/14.
-enron_mail_20110402/maildir/hyvl-d/power_projects/guatemala/15.
-enron_mail_20110402/maildir/hyvl-d/power_projects/guatemala/20.
-enron_mail_20110402/maildir/hyvl-d/power_projects/guatemala/22.
-enron_mail_20110402/maildir/taylor-m/all_documents/1085.
-enron_mail_20110402/maildir/taylor-m/all_documents/7469.
-enron_mail_20110402/maildir/taylor-m/all_documents/7640.
-enron_mail_20110402/maildir/taylor-m/all_documents/7684.
-enron_mail_20110402/maildir/taylor-m/all_documents/834.
-enron_mail_20110402/maildir/taylor-m/archive/11_99/25.
-enron_mail_20110402/maildir/taylor-m/archive/november1999/25.
-enron_mail_20110402/maildir/taylor-m/notes_inbox/2511.
-enron_mail_20110402/maildir/taylor-m/notes_inbox/2531.
-enron_mail_20110402/maildir/taylor-m/notes_inbox/2668.
-enron_mail_20110402/maildir/taylor-m/online_trading/158.
+version https://git-lfs.github.com/spec/v1
+oid sha256:c2b1a3752f948b3708be885a5583a979c51a95105bd1e4d5f41b38f44f1aa9ee
+size 1277

@@ -1,15 +1,3 @@
-enron_mail_20110402/maildir/beck-s/inbox/533.
-enron_mail_20110402/maildir/buy-r/inbox/609.
-enron_mail_20110402/maildir/buy-r/inbox/793.
-enron_mail_20110402/maildir/buy-r/inbox/850.
-enron_mail_20110402/maildir/buy-r/inbox/923.
-enron_mail_20110402/maildir/keiser-k/to_do/12.
-enron_mail_20110402/maildir/mclaughlin-e/inbox/427.
-enron_mail_20110402/maildir/mclaughlin-e/inbox/430.
-enron_mail_20110402/maildir/white-s/calendar/54.
-enron_mail_20110402/maildir/white-s/calendar/69.
-enron_mail_20110402/maildir/white-s/calendar/84.
-enron_mail_20110402/maildir/white-s/deleted_items/566.
-enron_mail_20110402/maildir/white-s/deleted_items/775.
-enron_mail_20110402/maildir/white-s/deleted_items/891.
-enron_mail_20110402/maildir/white-s/inbox/364.
+version https://git-lfs.github.com/spec/v1
+oid sha256:d900aec04852f3ddf1bafacc39dc3de99b073f693f9e2eb6975e3b2885e7e214
+size 736

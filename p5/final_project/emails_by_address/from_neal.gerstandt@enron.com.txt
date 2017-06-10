@@ -1,11 +1,3 @@
-enron_mail_20110402/maildir/mcconnell-m/all_documents/112.
-enron_mail_20110402/maildir/mcconnell-m/all_documents/116.
-enron_mail_20110402/maildir/mcconnell-m/all_documents/170.
-enron_mail_20110402/maildir/mcconnell-m/discussion_threads/551.
-enron_mail_20110402/maildir/mcconnell-m/discussion_threads/591.
-enron_mail_20110402/maildir/mcconnell-m/discussion_threads/595.
-enron_mail_20110402/maildir/mcconnell-m/notes_inbox/85.
-enron_mail_20110402/maildir/mcconnell-m/notes_inbox/89.
-enron_mail_20110402/maildir/mcconnell-m/project_jose/1.
-enron_mail_20110402/maildir/shapiro-r/venezuela_colombia/19.
-enron_mail_20110402/maildir/shapiro-r/venezuela_colombia/20.
+version https://git-lfs.github.com/spec/v1
+oid sha256:1e392f1e9daad5245cfe356f9d92b0cfd101148e52698f1a5e37f758770a514e
+size 659

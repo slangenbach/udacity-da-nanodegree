@@ -1,30 +1,3 @@
-enron_mail_20110402/maildir/guzman-m/all_documents/1419.
-enron_mail_20110402/maildir/guzman-m/all_documents/1440.
-enron_mail_20110402/maildir/guzman-m/all_documents/1487.
-enron_mail_20110402/maildir/guzman-m/all_documents/1622.
-enron_mail_20110402/maildir/guzman-m/all_documents/1724.
-enron_mail_20110402/maildir/guzman-m/all_documents/1734.
-enron_mail_20110402/maildir/guzman-m/all_documents/1735.
-enron_mail_20110402/maildir/guzman-m/all_documents/1778.
-enron_mail_20110402/maildir/guzman-m/all_documents/1825.
-enron_mail_20110402/maildir/guzman-m/all_documents/1860.
-enron_mail_20110402/maildir/guzman-m/discussion_threads/129.
-enron_mail_20110402/maildir/guzman-m/discussion_threads/149.
-enron_mail_20110402/maildir/guzman-m/discussion_threads/195.
-enron_mail_20110402/maildir/guzman-m/discussion_threads/237.
-enron_mail_20110402/maildir/guzman-m/discussion_threads/238.
-enron_mail_20110402/maildir/guzman-m/discussion_threads/250.
-enron_mail_20110402/maildir/guzman-m/discussion_threads/341.
-enron_mail_20110402/maildir/guzman-m/discussion_threads/469.
-enron_mail_20110402/maildir/guzman-m/discussion_threads/515.
-enron_mail_20110402/maildir/guzman-m/discussion_threads/536.
-enron_mail_20110402/maildir/guzman-m/notes_inbox/1303.
-enron_mail_20110402/maildir/guzman-m/notes_inbox/1322.
-enron_mail_20110402/maildir/guzman-m/notes_inbox/1367.
-enron_mail_20110402/maildir/guzman-m/notes_inbox/1464.
-enron_mail_20110402/maildir/guzman-m/notes_inbox/1546.
-enron_mail_20110402/maildir/guzman-m/notes_inbox/1556.
-enron_mail_20110402/maildir/guzman-m/notes_inbox/1557.
-enron_mail_20110402/maildir/guzman-m/notes_inbox/1588.
-enron_mail_20110402/maildir/guzman-m/notes_inbox/1620.
-enron_mail_20110402/maildir/guzman-m/notes_inbox/1636.
+version https://git-lfs.github.com/spec/v1
+oid sha256:a1f011db0b685dd7da7a06fc4f6596327af3451593fb529bfbde8d2999449b7b
+size 1730

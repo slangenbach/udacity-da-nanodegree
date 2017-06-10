@@ -1,12 +1,3 @@
-enron_mail_20110402/maildir/arnold-j/all_documents/147.
-enron_mail_20110402/maildir/arnold-j/all_documents/152.
-enron_mail_20110402/maildir/arnold-j/all_documents/174.
-enron_mail_20110402/maildir/arnold-j/all_documents/179.
-enron_mail_20110402/maildir/arnold-j/discussion_threads/180.
-enron_mail_20110402/maildir/arnold-j/discussion_threads/186.
-enron_mail_20110402/maildir/arnold-j/discussion_threads/202.
-enron_mail_20110402/maildir/arnold-j/discussion_threads/206.
-enron_mail_20110402/maildir/arnold-j/notes_inbox/19.
-enron_mail_20110402/maildir/arnold-j/notes_inbox/23.
-enron_mail_20110402/maildir/arnold-j/notes_inbox/4.
-enron_mail_20110402/maildir/arnold-j/notes_inbox/7.
+version https://git-lfs.github.com/spec/v1
+oid sha256:d90299af6609a85f90b8ef80ec7b798e4b61c1b3371e79db0e3ce818927d21ec
+size 678

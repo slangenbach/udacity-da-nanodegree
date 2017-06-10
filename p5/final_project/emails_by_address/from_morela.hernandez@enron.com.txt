@@ -1,14 +1,3 @@
-enron_mail_20110402/maildir/causholli-m/deleted_items/181.
-enron_mail_20110402/maildir/causholli-m/deleted_items/192.
-enron_mail_20110402/maildir/causholli-m/deleted_items/2.
-enron_mail_20110402/maildir/causholli-m/deleted_items/3.
-enron_mail_20110402/maildir/causholli-m/inbox/36.
-enron_mail_20110402/maildir/nemec-g/all_documents/769.
-enron_mail_20110402/maildir/nemec-g/all_documents/771.
-enron_mail_20110402/maildir/nemec-g/all_documents/979.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/111.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/113.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/266.
-enron_mail_20110402/maildir/taylor-m/inbox/social/38.
-enron_mail_20110402/maildir/taylor-m/inbox/social/39.
-enron_mail_20110402/maildir/taylor-m/inbox/social/64.
+version https://git-lfs.github.com/spec/v1
+oid sha256:1f5ed6d647488b8c6c3c1de46e83fb4fa5778a26f4cba46417b8a9e829ec3994
+size 768

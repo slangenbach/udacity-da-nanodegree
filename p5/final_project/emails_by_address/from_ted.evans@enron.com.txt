@@ -1,18 +1,3 @@
-enron_mail_20110402/maildir/tholt-j/deleted_items/154.
-enron_mail_20110402/maildir/tholt-j/deleted_items/156.
-enron_mail_20110402/maildir/tholt-j/deleted_items/158.
-enron_mail_20110402/maildir/tholt-j/deleted_items/160.
-enron_mail_20110402/maildir/tholt-j/deleted_items/161.
-enron_mail_20110402/maildir/tholt-j/deleted_items/179.
-enron_mail_20110402/maildir/tholt-j/deleted_items/213.
-enron_mail_20110402/maildir/tholt-j/deleted_items/214.
-enron_mail_20110402/maildir/tholt-j/deleted_items/216.
-enron_mail_20110402/maildir/tholt-j/inbox/135.
-enron_mail_20110402/maildir/wolfe-j/06_saved/62.
-enron_mail_20110402/maildir/wolfe-j/09_saved/27.
-enron_mail_20110402/maildir/wolfe-j/all_documents/162.
-enron_mail_20110402/maildir/wolfe-j/all_documents/192.
-enron_mail_20110402/maildir/wolfe-j/discussion_threads/161.
-enron_mail_20110402/maildir/wolfe-j/discussion_threads/191.
-enron_mail_20110402/maildir/wolfe-j/saved_04/26.
-enron_mail_20110402/maildir/wolfe-j/saved_04/56.
+version https://git-lfs.github.com/spec/v1
+oid sha256:48c9191d1e976759aea8613377252125fa42641897683891bda76f50221a2ff9
+size 968

@@ -1,12 +1,3 @@
-enron_mail_20110402/maildir/davis-d/all_documents/104.
-enron_mail_20110402/maildir/davis-d/all_documents/223.
-enron_mail_20110402/maildir/davis-d/all_documents/261.
-enron_mail_20110402/maildir/davis-d/all_documents/97.
-enron_mail_20110402/maildir/davis-d/church/21.
-enron_mail_20110402/maildir/davis-d/church/33.
-enron_mail_20110402/maildir/davis-d/church/5.
-enron_mail_20110402/maildir/davis-d/church/6.
-enron_mail_20110402/maildir/davis-d/discussion_threads/124.
-enron_mail_20110402/maildir/davis-d/discussion_threads/158.
-enron_mail_20110402/maildir/davis-d/discussion_threads/264.
-enron_mail_20110402/maildir/davis-d/discussion_threads/271.
+version https://git-lfs.github.com/spec/v1
+oid sha256:203aa57f7d7b229488ae4e399f3c917639709af0ac4508cc7aa664f9f1eac3c2
+size 645

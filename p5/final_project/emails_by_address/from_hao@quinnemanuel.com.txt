@@ -1,20 +1,3 @@
-enron_mail_20110402/maildir/sanders-r/all_documents/1417.
-enron_mail_20110402/maildir/sanders-r/all_documents/1425.
-enron_mail_20110402/maildir/sanders-r/all_documents/1426.
-enron_mail_20110402/maildir/sanders-r/all_documents/1483.
-enron_mail_20110402/maildir/sanders-r/all_documents/1484.
-enron_mail_20110402/maildir/sanders-r/all_documents/1489.
-enron_mail_20110402/maildir/sanders-r/all_documents/1516.
-enron_mail_20110402/maildir/sanders-r/all_documents/1544.
-enron_mail_20110402/maildir/sanders-r/all_documents/1591.
-enron_mail_20110402/maildir/sanders-r/all_documents/1705.
-enron_mail_20110402/maildir/sanders-r/iso__pricecaps/218.
-enron_mail_20110402/maildir/sanders-r/iso__pricecaps/225.
-enron_mail_20110402/maildir/sanders-r/iso__pricecaps/226.
-enron_mail_20110402/maildir/sanders-r/iso__pricecaps/237.
-enron_mail_20110402/maildir/sanders-r/iso__pricecaps/238.
-enron_mail_20110402/maildir/sanders-r/iso__pricecaps/241.
-enron_mail_20110402/maildir/sanders-r/iso__pricecaps/248.
-enron_mail_20110402/maildir/sanders-r/iso__pricecaps/255.
-enron_mail_20110402/maildir/sanders-r/iso__pricecaps/261.
-enron_mail_20110402/maildir/sanders-r/iso__pricecaps/293.
+version https://git-lfs.github.com/spec/v1
+oid sha256:a1e12fde647ea3eff6f60d90ca41a9b303de2af93ef225f8c478ec5c9e75671d
+size 1160

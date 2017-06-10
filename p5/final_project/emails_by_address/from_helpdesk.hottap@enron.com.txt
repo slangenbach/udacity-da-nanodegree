@@ -1,12 +1,3 @@
-enron_mail_20110402/maildir/blair-l/deleted_items/109.
-enron_mail_20110402/maildir/blair-l/deleted_items/131.
-enron_mail_20110402/maildir/blair-l/deleted_items/20.
-enron_mail_20110402/maildir/blair-l/deleted_items/296.
-enron_mail_20110402/maildir/blair-l/deleted_items/300.
-enron_mail_20110402/maildir/blair-l/deleted_items/421.
-enron_mail_20110402/maildir/blair-l/deleted_items/452.
-enron_mail_20110402/maildir/blair-l/deleted_items/51.
-enron_mail_20110402/maildir/blair-l/deleted_items/581.
-enron_mail_20110402/maildir/blair-l/deleted_items/68.
-enron_mail_20110402/maildir/blair-l/deleted_items/91.
-enron_mail_20110402/maildir/blair-l/reports___scheduled_quantity_report/1.
+version https://git-lfs.github.com/spec/v1
+oid sha256:bb670ebaad65b04e8daf4d6b0112a76f4d80aed982e50d6e1a7a17d1a0a97db6
+size 676

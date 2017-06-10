@@ -1,26 +1,3 @@
-enron_mail_20110402/maildir/brawner-s/deleted_items/132.
-enron_mail_20110402/maildir/donohoe-t/inbox/287.
-enron_mail_20110402/maildir/griffith-j/deleted_items/314.
-enron_mail_20110402/maildir/griffith-j/deleted_items/89.
-enron_mail_20110402/maildir/griffith-j/funny/17.
-enron_mail_20110402/maildir/griffith-j/funny/19.
-enron_mail_20110402/maildir/keavey-p/all_documents/319.
-enron_mail_20110402/maildir/keavey-p/discussion_threads/327.
-enron_mail_20110402/maildir/keavey-p/inbox/100.
-enron_mail_20110402/maildir/keavey-p/notes_inbox/249.
-enron_mail_20110402/maildir/may-l/inbox/1010.
-enron_mail_20110402/maildir/may-l/inbox/1061.
-enron_mail_20110402/maildir/may-l/inbox/115.
-enron_mail_20110402/maildir/may-l/inbox/346.
-enron_mail_20110402/maildir/may-l/inbox/50.
-enron_mail_20110402/maildir/may-l/inbox/623.
-enron_mail_20110402/maildir/may-l/inbox/624.
-enron_mail_20110402/maildir/may-l/inbox/766.
-enron_mail_20110402/maildir/may-l/inbox/842.
-enron_mail_20110402/maildir/may-l/inbox/866.
-enron_mail_20110402/maildir/may-l/inbox/927.
-enron_mail_20110402/maildir/may-l/inbox/935.
-enron_mail_20110402/maildir/may-l/inbox/936.
-enron_mail_20110402/maildir/may-l/inbox/937.
-enron_mail_20110402/maildir/may-l/inbox/979.
-enron_mail_20110402/maildir/neal-s/deleted_items/580.
+version https://git-lfs.github.com/spec/v1
+oid sha256:ea9379e3ad27b29ed80fff11a9aa4882f185c910e482706ba8b3d0b366201545
+size 1268

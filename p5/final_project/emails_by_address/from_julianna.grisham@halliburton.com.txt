@@ -1,13 +1,3 @@
-enron_mail_20110402/maildir/scott-s/all_documents/1154.
-enron_mail_20110402/maildir/scott-s/all_documents/1167.
-enron_mail_20110402/maildir/scott-s/all_documents/1190.
-enron_mail_20110402/maildir/scott-s/all_documents/1191.
-enron_mail_20110402/maildir/scott-s/discussion_threads/1311.
-enron_mail_20110402/maildir/scott-s/discussion_threads/1312.
-enron_mail_20110402/maildir/scott-s/discussion_threads/1334.
-enron_mail_20110402/maildir/scott-s/discussion_threads/1347.
-enron_mail_20110402/maildir/scott-s/inbox/137.
-enron_mail_20110402/maildir/scott-s/notes_inbox/342.
-enron_mail_20110402/maildir/scott-s/notes_inbox/352.
-enron_mail_20110402/maildir/scott-s/notes_inbox/371.
-enron_mail_20110402/maildir/scott-s/notes_inbox/372.
+version https://git-lfs.github.com/spec/v1
+oid sha256:ff03d7e80d92f612a7c45429405b3cbcb0740c8216bae34789e9db52246fd4bc
+size 727

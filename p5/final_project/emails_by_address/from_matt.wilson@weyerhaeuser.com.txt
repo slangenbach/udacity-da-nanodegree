@@ -1,12 +1,3 @@
-enron_mail_20110402/maildir/guzman-m/all_documents/192.
-enron_mail_20110402/maildir/guzman-m/all_documents/1931.
-enron_mail_20110402/maildir/guzman-m/all_documents/1938.
-enron_mail_20110402/maildir/guzman-m/all_documents/402.
-enron_mail_20110402/maildir/guzman-m/discussion_threads/1534.
-enron_mail_20110402/maildir/guzman-m/discussion_threads/1741.
-enron_mail_20110402/maildir/guzman-m/discussion_threads/59.
-enron_mail_20110402/maildir/guzman-m/discussion_threads/68.
-enron_mail_20110402/maildir/guzman-m/notes_inbox/1690.
-enron_mail_20110402/maildir/guzman-m/notes_inbox/1697.
-enron_mail_20110402/maildir/guzman-m/notes_inbox/184.
-enron_mail_20110402/maildir/guzman-m/notes_inbox/376.
+version https://git-lfs.github.com/spec/v1
+oid sha256:6617ed6ca55d862dc0955de1c5fabb94d22994a4f7944ff73be968da5d787f19
+size 688

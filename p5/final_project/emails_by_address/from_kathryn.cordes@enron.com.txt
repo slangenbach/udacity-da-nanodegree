@@ -1,11 +1,3 @@
-enron_mail_20110402/maildir/jones-t/all_documents/11592.
-enron_mail_20110402/maildir/jones-t/notes_inbox/4564.
-enron_mail_20110402/maildir/shackleton-s/inbox/206.
-enron_mail_20110402/maildir/shackleton-s/inbox/326.
-enron_mail_20110402/maildir/shackleton-s/inbox/452.
-enron_mail_20110402/maildir/shackleton-s/inbox/486.
-enron_mail_20110402/maildir/taylor-m/all_documents/1530.
-enron_mail_20110402/maildir/taylor-m/inbox/110.
-enron_mail_20110402/maildir/taylor-m/inbox/111.
-enron_mail_20110402/maildir/taylor-m/inbox/57.
-enron_mail_20110402/maildir/taylor-m/notes_inbox/247.
+version https://git-lfs.github.com/spec/v1
+oid sha256:65678f6e95c9741bfd6e3a65a915545e153edcdfbfb36a9d7fe52f0cb8335b21
+size 573

@@ -1,13 +1,3 @@
-enron_mail_20110402/maildir/hyatt-k/inbox/28.
-enron_mail_20110402/maildir/lokey-t/deleted_items/36.
-enron_mail_20110402/maildir/lokey-t/inbox/104.
-enron_mail_20110402/maildir/lokey-t/inbox/130.
-enron_mail_20110402/maildir/lokey-t/inbox/14.
-enron_mail_20110402/maildir/lokey-t/inbox/231.
-enron_mail_20110402/maildir/lokey-t/inbox/237.
-enron_mail_20110402/maildir/lokey-t/inbox/598.
-enron_mail_20110402/maildir/lokey-t/inbox/60.
-enron_mail_20110402/maildir/lokey-t/inbox/613.
-enron_mail_20110402/maildir/lokey-t/inbox/774.
-enron_mail_20110402/maildir/lokey-t/inbox/876.
-enron_mail_20110402/maildir/watson-k/inbox/175.
+version https://git-lfs.github.com/spec/v1
+oid sha256:e7f47018c025c0451f96c9f2ca8ed0e57aaefea8e043ffb0e3ed2a3db9602230
+size 616

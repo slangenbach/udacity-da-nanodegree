@@ -1,20 +1,3 @@
-enron_mail_20110402/maildir/nemec-g/all_documents/1029.
-enron_mail_20110402/maildir/nemec-g/all_documents/1199.
-enron_mail_20110402/maildir/nemec-g/all_documents/1231.
-enron_mail_20110402/maildir/nemec-g/all_documents/1876.
-enron_mail_20110402/maildir/nemec-g/all_documents/5649.
-enron_mail_20110402/maildir/nemec-g/all_documents/5717.
-enron_mail_20110402/maildir/nemec-g/all_documents/5946.
-enron_mail_20110402/maildir/nemec-g/all_documents/614.
-enron_mail_20110402/maildir/nemec-g/all_documents/892.
-enron_mail_20110402/maildir/nemec-g/all_documents/893.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/13.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/1506.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/1668.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/1716.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/201.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/202.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/302.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/423.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/452.
-enron_mail_20110402/maildir/nemec-g/notes_inbox/925.
+version https://git-lfs.github.com/spec/v1
+oid sha256:ee49906471570ca803a5d650921042da0dc75bb2000c04361827160a776a09fc
+size 1089

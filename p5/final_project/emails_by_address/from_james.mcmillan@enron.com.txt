@@ -1,11 +1,3 @@
-enron_mail_20110402/maildir/cash-m/all_documents/604.
-enron_mail_20110402/maildir/cash-m/all_documents/674.
-enron_mail_20110402/maildir/cash-m/all_documents/682.
-enron_mail_20110402/maildir/cash-m/notes_inbox/23.
-enron_mail_20110402/maildir/cash-m/notes_inbox/37.
-enron_mail_20110402/maildir/cash-m/notes_inbox/42.
-enron_mail_20110402/maildir/ybarbo-p/calendar/7.
-enron_mail_20110402/maildir/ybarbo-p/calendar/8.
-enron_mail_20110402/maildir/ybarbo-p/inbox/138.
-enron_mail_20110402/maildir/ybarbo-p/inbox/324.
-enron_mail_20110402/maildir/ybarbo-p/inbox/39.
+version https://git-lfs.github.com/spec/v1
+oid sha256:8721f3197cb0b4c708aab024ef632eae7b08c07172bec213a8a04d98d69aa868
+size 556

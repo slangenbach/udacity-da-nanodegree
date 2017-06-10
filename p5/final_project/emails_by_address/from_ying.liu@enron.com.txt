@@ -1,12 +1,3 @@
-enron_mail_20110402/maildir/griffith-j/all_documents/21.
-enron_mail_20110402/maildir/griffith-j/all_documents/266.
-enron_mail_20110402/maildir/griffith-j/all_documents/273.
-enron_mail_20110402/maildir/griffith-j/all_documents/31.
-enron_mail_20110402/maildir/griffith-j/discussion_threads/21.
-enron_mail_20110402/maildir/griffith-j/discussion_threads/247.
-enron_mail_20110402/maildir/griffith-j/indeck_corinth/1.
-enron_mail_20110402/maildir/griffith-j/indeck_corinth/4.
-enron_mail_20110402/maildir/griffith-j/oyster_creek/1.
-enron_mail_20110402/maildir/griffith-j/oyster_creek/2.
-enron_mail_20110402/maildir/hodge-j/all_documents/84.
-enron_mail_20110402/maildir/hodge-j/discussion_threads/64.
+version https://git-lfs.github.com/spec/v1
+oid sha256:65cbe7b9f5461570f19bdcb798758ae4925faeda3711c52d06f56c016e6b4347
+size 692

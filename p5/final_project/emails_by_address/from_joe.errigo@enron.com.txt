@@ -1,11 +1,3 @@
-enron_mail_20110402/maildir/baughman-d/all_documents/365.
-enron_mail_20110402/maildir/baughman-d/discussion_threads/363.
-enron_mail_20110402/maildir/baughman-d/inbox/61.
-enron_mail_20110402/maildir/baughman-d/personal/imagesmoviessound/8.
-enron_mail_20110402/maildir/baughman-d/power/24_hour/139.
-enron_mail_20110402/maildir/baughman-d/power/24_hour/8.
-enron_mail_20110402/maildir/baughman-d/power/cinergy_index/88.
-enron_mail_20110402/maildir/hernandez-j/inbox/120.
-enron_mail_20110402/maildir/hernandez-j/inbox/154.
-enron_mail_20110402/maildir/hernandez-j/inbox/155.
-enron_mail_20110402/maildir/hernandez-j/inbox/66.
+version https://git-lfs.github.com/spec/v1
+oid sha256:f11f26292d8d1fde453bd27d44e20675b811f547648f7c893ad8ba1d52cf252f
+size 619

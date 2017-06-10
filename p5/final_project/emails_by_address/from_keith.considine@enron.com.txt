@@ -1,22 +1,3 @@
-enron_mail_20110402/maildir/giron-d/calendar/2.
-enron_mail_20110402/maildir/giron-d/deleted_items/45.
-enron_mail_20110402/maildir/keiser-k/calendar/26.
-enron_mail_20110402/maildir/love-p/calendar/1.
-enron_mail_20110402/maildir/love-p/deleted_items/40.
-enron_mail_20110402/maildir/mclaughlin-e/calendar/12.
-enron_mail_20110402/maildir/mclaughlin-e/inbox/389.
-enron_mail_20110402/maildir/parks-j/deleted_items/648.
-enron_mail_20110402/maildir/parks-j/deleted_items/668.
-enron_mail_20110402/maildir/parks-j/deleted_items/704.
-enron_mail_20110402/maildir/scott-s/inbox/389.
-enron_mail_20110402/maildir/white-s/calendar/11.
-enron_mail_20110402/maildir/white-s/calendar/70.
-enron_mail_20110402/maildir/white-s/deleted_items/265.
-enron_mail_20110402/maildir/white-s/deleted_items/266.
-enron_mail_20110402/maildir/white-s/deleted_items/277.
-enron_mail_20110402/maildir/white-s/deleted_items/656.
-enron_mail_20110402/maildir/white-s/deleted_items/657.
-enron_mail_20110402/maildir/white-s/deleted_items/681.
-enron_mail_20110402/maildir/white-s/deleted_items/997.
-enron_mail_20110402/maildir/white-s/inbox/346.
-enron_mail_20110402/maildir/white-s/inbox/391.
+version https://git-lfs.github.com/spec/v1
+oid sha256:05ecef800066393a44e2b06b07948ffab117502f22e9a150b338d0ddde504f3a
+size 1147

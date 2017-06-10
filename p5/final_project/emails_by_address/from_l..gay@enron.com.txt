@@ -1,19 +1,3 @@
-enron_mail_20110402/maildir/ermis-f/inbox/477.
-enron_mail_20110402/maildir/gay-r/sent_items/1.
-enron_mail_20110402/maildir/gay-r/sent_items/13.
-enron_mail_20110402/maildir/gay-r/sent_items/14.
-enron_mail_20110402/maildir/gay-r/sent_items/15.
-enron_mail_20110402/maildir/gay-r/sent_items/2.
-enron_mail_20110402/maildir/gay-r/sent_items/3.
-enron_mail_20110402/maildir/gay-r/sent_items/4.
-enron_mail_20110402/maildir/gay-r/sent_items/5.
-enron_mail_20110402/maildir/gay-r/sent_items/6.
-enron_mail_20110402/maildir/grigsby-m/deleted_items/392.
-enron_mail_20110402/maildir/kuykendall-t/deleted_items/146.
-enron_mail_20110402/maildir/kuykendall-t/deleted_items/92.
-enron_mail_20110402/maildir/lenhart-m/deleted_items/226.
-enron_mail_20110402/maildir/reitmeyer-j/inbox/17.
-enron_mail_20110402/maildir/tholt-j/inbox/3.
-enron_mail_20110402/maildir/tholt-j/janie/268.
-enron_mail_20110402/maildir/tycholiz-b/deleted_items/149.
-enron_mail_20110402/maildir/ward-k/inbox/335.
+version https://git-lfs.github.com/spec/v1
+oid sha256:c9eec6c07887cf5f902da1bbbbc9efed193a4a6fc4c913c450df7bad117513f2
+size 961

@@ -1,12 +1,3 @@
-enron_mail_20110402/maildir/hayslett-r/projects/project_fremont/1.
-enron_mail_20110402/maildir/hayslett-r/projects/project_fremont/2.
-enron_mail_20110402/maildir/hayslett-r/projects/project_notre_dame/1.
-enron_mail_20110402/maildir/kitchen-l/_americas/esvl/206.
-enron_mail_20110402/maildir/kitchen-l/_americas/esvl/312.
-enron_mail_20110402/maildir/kitchen-l/_americas/esvl/345.
-enron_mail_20110402/maildir/kitchen-l/_americas/esvl/347.
-enron_mail_20110402/maildir/kitchen-l/_americas/esvl/376.
-enron_mail_20110402/maildir/kitchen-l/deleted_items/77.
-enron_mail_20110402/maildir/kitchen-l/deleted_items/85.
-enron_mail_20110402/maildir/kitchen-l/inbox/16.
-enron_mail_20110402/maildir/shankman-j/deleted_items/12.
+version https://git-lfs.github.com/spec/v1
+oid sha256:094232d86d743ff9782d6aa455b2526be3b37c0e319d39e71b352235aaaf6d66
+size 711

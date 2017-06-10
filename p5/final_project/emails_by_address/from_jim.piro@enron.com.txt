@@ -1,16 +1,3 @@
-enron_mail_20110402/maildir/hayslett-r/inbox/37.
-enron_mail_20110402/maildir/hayslett-r/inbox/38.
-enron_mail_20110402/maildir/hayslett-r/inbox/93.
-enron_mail_20110402/maildir/hayslett-r/projects/portland_general/11.
-enron_mail_20110402/maildir/hayslett-r/projects/portland_general/13.
-enron_mail_20110402/maildir/hayslett-r/projects/portland_general/14.
-enron_mail_20110402/maildir/hayslett-r/projects/portland_general/16.
-enron_mail_20110402/maildir/hayslett-r/projects/portland_general/19.
-enron_mail_20110402/maildir/hayslett-r/projects/portland_general/2.
-enron_mail_20110402/maildir/hayslett-r/projects/portland_general/22.
-enron_mail_20110402/maildir/hayslett-r/projects/portland_general/26.
-enron_mail_20110402/maildir/hayslett-r/projects/portland_general/29.
-enron_mail_20110402/maildir/hayslett-r/projects/portland_general/3.
-enron_mail_20110402/maildir/hayslett-r/projects/portland_general/31.
-enron_mail_20110402/maildir/hayslett-r/projects/portland_general/6.
-enron_mail_20110402/maildir/hayslett-r/projects/portland_general/9.
+version https://git-lfs.github.com/spec/v1
+oid sha256:474e1c95ba695bfd412f459a45985493b5a5f3395148b873b6cf1824628a5107
+size 1040

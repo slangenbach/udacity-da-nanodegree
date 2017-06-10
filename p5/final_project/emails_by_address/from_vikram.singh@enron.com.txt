@@ -1,11 +1,3 @@
-enron_mail_20110402/maildir/causholli-m/deleted_items/203.
-enron_mail_20110402/maildir/causholli-m/deleted_items/24.
-enron_mail_20110402/maildir/causholli-m/deleted_items/489.
-enron_mail_20110402/maildir/causholli-m/deleted_items/84.
-enron_mail_20110402/maildir/causholli-m/inbox/114.
-enron_mail_20110402/maildir/causholli-m/inbox/121.
-enron_mail_20110402/maildir/causholli-m/inbox/139.
-enron_mail_20110402/maildir/tycholiz-b/deleted_items/2.
-enron_mail_20110402/maildir/tycholiz-b/deleted_items/21.
-enron_mail_20110402/maildir/tycholiz-b/deleted_items/22.
-enron_mail_20110402/maildir/tycholiz-b/deleted_items/3.
+version https://git-lfs.github.com/spec/v1
+oid sha256:05f0143c594e8501a8fced6378f1f7d7c72c73b23324335413d0ac08032a19aa
+size 613

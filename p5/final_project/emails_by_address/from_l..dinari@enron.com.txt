@@ -1,12 +1,3 @@
-enron_mail_20110402/maildir/beck-s/inbox/125.
-enron_mail_20110402/maildir/farmer-d/logistics/107.
-enron_mail_20110402/maildir/germany-c/bankrupt/cleburne_lone_star/58.
-enron_mail_20110402/maildir/germany-c/bankrupt/cleburne_lone_star/81.
-enron_mail_20110402/maildir/germany-c/bankrupt/cleburne_lone_star/82.
-enron_mail_20110402/maildir/germany-c/bankrupt/cleburne_lone_star/85.
-enron_mail_20110402/maildir/germany-c/bankrupt/enron_compressor_services/6.
-enron_mail_20110402/maildir/kitchen-l/_americas/esvl/340.
-enron_mail_20110402/maildir/kitchen-l/_americas/esvl/47.
-enron_mail_20110402/maildir/kitchen-l/_americas/hr/5.
-enron_mail_20110402/maildir/parks-j/inbox/362.
-enron_mail_20110402/maildir/parks-j/inbox/363.
+version https://git-lfs.github.com/spec/v1
+oid sha256:eda28775cff09f7e039b8465994e617104e1724f1f5bdc3a51e7b413a357fde0
+size 717

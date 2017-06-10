@@ -1,18 +1,3 @@
-enron_mail_20110402/maildir/blair-l/inbox/204.
-enron_mail_20110402/maildir/blair-l/inbox/205.
-enron_mail_20110402/maildir/blair-l/inbox/206.
-enron_mail_20110402/maildir/blair-l/inbox/207.
-enron_mail_20110402/maildir/blair-l/inbox/265.
-enron_mail_20110402/maildir/blair-l/inbox/36.
-enron_mail_20110402/maildir/corman-s/inbox/archives/379.
-enron_mail_20110402/maildir/schoolcraft-d/deleted_items/102.
-enron_mail_20110402/maildir/schoolcraft-d/deleted_items/177.
-enron_mail_20110402/maildir/schoolcraft-d/deleted_items/309.
-enron_mail_20110402/maildir/schoolcraft-d/deleted_items/613.
-enron_mail_20110402/maildir/schoolcraft-d/deleted_items/87.
-enron_mail_20110402/maildir/schoolcraft-d/inbox/junk/106.
-enron_mail_20110402/maildir/schoolcraft-d/inbox/junk/247.
-enron_mail_20110402/maildir/schoolcraft-d/inbox/junk/373.
-enron_mail_20110402/maildir/schoolcraft-d/inbox/junk/390.
-enron_mail_20110402/maildir/schoolcraft-d/inbox/junk/456.
-enron_mail_20110402/maildir/schoolcraft-d/inbox/junk/474.
+version https://git-lfs.github.com/spec/v1
+oid sha256:9b524cc7b0775475406f19f743c818822ce6b632ad4e890a8514284bb58ff1c3
+size 990

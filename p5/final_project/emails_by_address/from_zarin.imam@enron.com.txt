@@ -1,13 +1,3 @@
-enron_mail_20110402/maildir/baughman-d/enron_power/interviews/22.
-enron_mail_20110402/maildir/baughman-d/enron_power/interviews/25.
-enron_mail_20110402/maildir/baughman-d/enron_power/interviews/37.
-enron_mail_20110402/maildir/baughman-d/power/interviews/116.
-enron_mail_20110402/maildir/baughman-d/power/interviews/156.
-enron_mail_20110402/maildir/baughman-d/power/interviews/89.
-enron_mail_20110402/maildir/baughman-d/power/interviews/96.
-enron_mail_20110402/maildir/campbell-l/all_documents/1709.
-enron_mail_20110402/maildir/campbell-l/all_documents/1792.
-enron_mail_20110402/maildir/campbell-l/discussion_threads/1540.
-enron_mail_20110402/maildir/campbell-l/discussion_threads/1624.
-enron_mail_20110402/maildir/campbell-l/notes_inbox/560.
-enron_mail_20110402/maildir/campbell-l/notes_inbox/639.
+version https://git-lfs.github.com/spec/v1
+oid sha256:2b6099a99fec7aeb6fff2cd3e58a2fd18065b10d63a8e4e2a1d4e314be15835d
+size 798

@@ -1,20 +1,3 @@
-enron_mail_20110402/maildir/ring-r/deleted_items/154.
-enron_mail_20110402/maildir/ring-r/deleted_items/27.
-enron_mail_20110402/maildir/ring-r/deleted_items/37.
-enron_mail_20110402/maildir/ring-r/eesiisopjm/14.
-enron_mail_20110402/maildir/ring-r/eesiisopjm/2.
-enron_mail_20110402/maildir/ring-r/eesiisopjm/5.
-enron_mail_20110402/maildir/ring-r/eesiisopjm/9.
-enron_mail_20110402/maildir/ring-r/inbox/21.
-enron_mail_20110402/maildir/ring-r/inbox/29.
-enron_mail_20110402/maildir/ring-r/inbox/55.
-enron_mail_20110402/maildir/ring-r/personalfolder/17.
-enron_mail_20110402/maildir/ring-r/personalfolder/45.
-enron_mail_20110402/maildir/ring-r/personalfolder/55.
-enron_mail_20110402/maildir/ring-r/personalfolder/61.
-enron_mail_20110402/maildir/ring-r/personalfolder/62.
-enron_mail_20110402/maildir/ring-r/personalfolder/64.
-enron_mail_20110402/maildir/ring-r/personalfolder/65.
-enron_mail_20110402/maildir/ring-r/personalfolder/69.
-enron_mail_20110402/maildir/ring-r/personalfolder/70.
-enron_mail_20110402/maildir/ring-r/personalfolder/71.
+version https://git-lfs.github.com/spec/v1
+oid sha256:fb9604597b25c019a3be9673be0301dce8104bd06e8568aaaff6b1920bbb6861
+size 1032

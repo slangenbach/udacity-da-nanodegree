@@ -1,11 +1,3 @@
-enron_mail_20110402/maildir/wolfe-j/07_saved/2.
-enron_mail_20110402/maildir/wolfe-j/07_saved/44.
-enron_mail_20110402/maildir/wolfe-j/07_saved/45.
-enron_mail_20110402/maildir/wolfe-j/07_saved/51.
-enron_mail_20110402/maildir/wolfe-j/08_saved/6.
-enron_mail_20110402/maildir/wolfe-j/10_saved/55.
-enron_mail_20110402/maildir/wolfe-j/10_saved/57.
-enron_mail_20110402/maildir/wolfe-j/10_saved/66.
-enron_mail_20110402/maildir/wolfe-j/inbox/180.
-enron_mail_20110402/maildir/wolfe-j/inbox/182.
-enron_mail_20110402/maildir/wolfe-j/inbox/191.
+version https://git-lfs.github.com/spec/v1
+oid sha256:199545533b597fa540f16dcde41dd20002c55598cd693a0298dc8325e48d5fce
+size 531
