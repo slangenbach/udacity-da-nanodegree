@@ -1,10 +1,10 @@
 # Create a Tableau Story
 ## Udacity data analyst nanodegree
-Link to Tableau Public story: <insert here>
+Link to [my subsmission](https://public.tableau.com/profile/stefan.langenbach#!/vizhome/Udacitydataanalystnanodegree/Story1) on Tableau Public
 
 ## Summary
-Within this project the well-known [Titanic](https://www.kaggle.com/c/titanic) dataset is anaylzed. The focus of the anaylsis is to investigate
-why certain passengers survived the accident any why other did not. My visualzation provides an overview of
+Within this project the well-known [Titanic](https://www.kaggle.com/c/titanic) dataset is analyzed. The focus of the analysis is to investigate
+why certain passengers survived the accident any why other did not. My visualization provides an overview of
 the main feature of the data set and highlights some interesting attributes of survivors and non-survivors.
 
 ## Design
@@ -12,22 +12,24 @@ In order to make the visualization appealing and effective, I took the following
 * Chart types (bar charts for comparisons between items with few categories, histograms for distributions, scatter plots for relationships)
 * Focus on position, size and color saturation as main design elements
 * Usage of a color palette suitable for color-blinds
-* Usage of the same color palette accross all visualizations
+* Usage of the same color palette across all visualizations
 
 ## Feedback
-In order to improve my visualization I requested feedback from two coworkers.
+In order to improve my visualization I requested feedback from two coworkers and somebody totally unfamiliar with data analysis and visualization
 The first coworker did provide feedback related to design elements, i.e.:
-* Usage of a consistent color palette (my first iteration did not honour my own design concept)
+* Usage of a consistent color palette (my first iteration did not honor my own design concept)
 * Improved format of axes (rotation of labels for better readability)
 * Omitting dedicated legends if labels and color palette were already conveying all necessary information
 * Limits on the number of objects on dashboards
 
 I did implement all of his advice.
 
-The Second coworker focused on an entirely different aspect of the visualizatin, the story.
+The Second coworker focused on an entirely different aspect of the visualization, the story.
 In essence she advised me to:
 * Use visualizations as filters to easily differentiate between sex
-*
+* Design the story in a better way
+
+The third person providing feedback was very clear about the title of charts. She urged me to convey the main message of the chart directly in the title. Seems obvious, but I had not implemented that for all charts.
 
 ## Resources
 * [Tableau documentation](http://onlinehelp.tableau.com/current/pro/desktop/en-us/help.htm)
