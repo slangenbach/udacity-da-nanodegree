@@ -31,9 +31,9 @@ I did implement all of his advice.
 The Second coworker focused on an entirely different aspect of the visualization, the story.
 In essence she advised me to:
 * Use visualizations as filters to easily differentiate between sex.
-* Design the story in a better way
+* Design the story in a better way (adding a filtered copy of the first analysis dashboard at the end of the story)
 
-I added a filter to easily focus on either males and females. Furthermore I this filter was explicitly added to the story (after Udacity review feedback) to make it as easy as possible for viewers to use it
+I added a filter to easily focus on either males and females. Furthermore additional filters were explicitly added to the story (after Udacity review feedback) to make it as easy as possible for viewers to engage with it.
 
 The third person providing feedback was very clear about the title of charts. She urged me to convey the main message of the chart directly in the title. Seems obvious, but I had not implemented that for all charts (see P6_Visualization_before_feedback.png)
 
