@@ -24,6 +24,7 @@ options(repos = c(CRAN = "https://mran.revolutionanalytics.com/snapshot/2017-01-
 
 # Load required packages
 library(tidyverse)
+library(ggplot2)
 ```
 
 ```{r echo=FALSE, Load_the_Data}
@@ -38,6 +39,13 @@ was rated by at least 3 experts in order to provide a quality score
 ```{r echo=FALSE, structure}
 str(wine)
 ```
+
+Missing values tbd
+
+```{r echo=FALSE, Bivariate_Plots}
+sum(is.na.data.frame(wine))
+```
+
 
 Structure tbd
 
@@ -56,7 +64,8 @@ ggplot(wine, aes(x = quality)) +
 
 ```{r echo=False, alcohol} 
 ggplot(wine, aes(x = alcohol)) +
-  geom_histogram()
+  geom_histogram(binwidth = 0.25)
+summary(wine$alcohol)
 ```
 
 ```{r echo=False, sulphates} 
@@ -126,17 +135,22 @@ ggplot(wine, aes(x = total.sulfur.dioxide)) +
 # Univariate Analysis
 
 ### What is the structure of your dataset?
+ToDo: run str(wine) and briefly describe output
 
 ### What is/are the main feature(s) of interest in your dataset?
+ToDo: Briefy describe main features from str(wine)
 
 ### What other features in the dataset do you think will help support your \
 investigation into your feature(s) of interest?
+ToDo: Add something on the chemics side
 
 ### Did you create any new variables from existing variables in the dataset?
+ToDo: Create quality/alcohol index
 
 ### Of the features you investigated, were there any unusual distributions? \
 Did you perform any operations on the data to tidy, adjust, or change the form \
 of the data? If so, why did you do this?
+ToDo: Check for NaN values and outliers (max values)
 
 ### Own thougths
 
@@ -147,11 +161,7 @@ of the data? If so, why did you do this?
 between variables might be interesting to look at in this section? Don't limit
 yourself to relationships between a main output feature and one of the
 supporting variables. Try to look at relationships between supporting variables
-as well.
-
-```{r echo=FALSE, Bivariate_Plots}
-
-```
+as well
 
 # Bivariate Analysis
 
@@ -161,12 +171,22 @@ here. Use the questions below to guide your discussion.
 ### Talk about some of the relationships you observed in this part of the \
 investigation. How did the feature(s) of interest vary with other features in \
 the dataset?
+ToDo: Investigate quality/alcohol/sugar
+
+```{r echo=FALSE, Bivariate_Plots}
+ggplot(wine, aes(x = as.factor(quality), y = alcohol)) +
+  geom_jitter()
+```
 
 ### Did you observe any interesting relationships between the other features \
 (not the main feature(s) of interest)?
 
 ### What was the strongest relationship you found?
+ToDo: Table and visualization
 
+```{r echo=FALSE, Bivariate_Plots}
+cor(wine)
+```
 
 # Multivariate Plots Section
 
