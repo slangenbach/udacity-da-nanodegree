@@ -69,6 +69,9 @@ p2/daily_engagement_full.csv
 p3/cologne_germany.osm
 p5/maildir/
 p5/final_project/emails_by_address/
+p6/*.csv
+p6/*.xlsx
+p6/*.zip
 
 # R stuff
 .Rproj.user
