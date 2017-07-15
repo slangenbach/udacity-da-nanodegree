@@ -3,23 +3,11 @@ output:
   html_document: default
   pdf_document: default
 ---
-White wine exploration by Stefan Langenbach
-========================================================
+# White wine exploration by Stefan Langenbach
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, packages}
-# Load all of the packages that you end up using in your analysis in this code
-# chunk.
+## Udacity data analyst nanodegree
 
-# Notice that the parameter "echo" was set to FALSE for this code chunk. This
-# prevents the code from displaying in the knitted HTML output. You should set
-# echo=FALSE for all code chunks in your file, unless it makes sense for your
-# report to show the code that generated a particular plot.
-
-# The other parameters for "message" and "warning" should also be set to FALSE
-# for other code chunks once you have verified that each plot comes out as you
-# want it to. This will clean up the flow of your report.
-
-
+```{r echo=FALSE, message=FALSE, warning=FALSE, setup}
 # use MRO repo from end of January
 options(repos = c(CRAN = "https://mran.revolutionanalytics.com/snapshot/2017-01-27"))
 
@@ -36,7 +24,7 @@ wine <- read.csv("./wineQualityWhites.csv")
 ```
 
 The dataset we are going to investigate consists of roughly 4.900 records of
-white wines and 11 attributes specifying their (chemical) properties,
+white wines and 12 attributes specifying their (chemical) properties,
 i.e. acidity, pH-level, alcohol-percentage and quality rating. Each wine
 was rated by at least 3 experts in order to provide a quality score. The score
 ranges from 0 (worst) to 10 (best).
@@ -45,7 +33,7 @@ ranges from 0 (worst) to 10 (best).
 str(wine)
 ```
 
-The dataset does not contain any missing values
+The dataset does not contain any missing values.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, na_values}
 sum(is.na.data.frame(wine))
@@ -68,86 +56,84 @@ Let's move on with a visual investigation of our dataset. The following plots
 will investigate each variable individually.
 
 ## Non-chemical variables
-```{r echo=FALSE, message=FALSE, warning=FALSE, bar_quality}
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_quality}
 ggplot(wine, aes(as.factor(quality))) +
   geom_bar(aes(fill = ..count..)) + 
-  labs(title = "Wines by quality", x = "quality")
+  labs(title = "Wines by quality", x = "quality", y = "Number of wines")
 ```
 
-Wine rating range from 3 to 9 and most wines were given a rating of 6. There
+Wine rating ranges from 3 to 9 and most wines were given a rating of 6. There
 are only very few wines with particularly bad (quality = 3) or good (quality = 9)
-rating
+ratings.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, freqpoly_alcohol} 
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_alcohol} 
 ggplot(wine, aes(x = alcohol)) +
   geom_histogram(aes(fill = ..count..)) +
   scale_x_continuous(breaks = c(0, 8, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 15), minor_breaks = seq(9, 12.5, 0.25)) +
-  labs(title = "Wines by alcohol percentage")
+  labs(title = "Wines by alcohol percentage", x = "alcohol (% by volume)", y = "Number of wines")
 ```
 ```{r echo=FALSE, message=FALSE, warning=FALSE, summary_alcohol}
 summary(wine$alcohol)
 ```
 
 The distribution of percentage of alcohol of wines in the dataset is multi-modal.
-Although most wines have about 9.25% of alcohol, there are more peaks 10.5,
-close to 11 and 11.25, as well as close to 12.5.
+Although most wines have between 9 and 9.5% of alcohol, there are more peaks 10.5,
+close to 11 and close to 12.5.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, alc_level}
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_alc_level}
 wine <- mutate(wine, alc_level = cut(wine$alcohol, breaks = 4))
 
 ggplot(wine, aes(x = alc_level)) +
   geom_bar(aes(fill = ..count..)) +
-  labs(title = "Wines by alcohol intervals", x = "alcohol intervals")
+  labs(title = "Wines by alcohol intervals", x = "alcohol intervals", y = "Number of wines")
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, freqpoly_sulphates} 
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_sulphates} 
 ggplot(wine, aes(x = sulphates)) +
   geom_freqpoly() +
   geom_vline(aes(xintercept = median(wine$sulphates), colour = "red"), show.legend = F) +
   scale_x_continuous(breaks = seq(0, 1, 0.1)) +
-  labs(title = "Wines by sulphates", caption = "Vertical red line indicates median of sulphates")
+  labs(title = "Wines by sulphates", caption = "Vertical red line indicates median of sulphates", x = expression(sulphates~(g/dm^3)), y = "Number of wines")
 ```
 ```{r echo=FALSE, message=FALSE, warning=FALSE, summary_sulphates}
 summary(wine$sulphates)
 ```
 
-Interestingly, sulphates is a bi-modal distribution with peaks at about 0.375 and
-0.475. Furthermore there are few wines with high values of sulphates (above 0.85)
-Vertical blue line indicates median of sulphates.
+Interestingly, sulphates has a bi-modal distribution with peaks at about 0.375 and
+0.475. Furthermore there are few wines with high values of sulphates (above 0.85).
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, sulphate_level}
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_sulphate_level}
 wine <- mutate(wine, sul_level = cut(wine$sulphates, breaks = 4))
 
 ggplot(wine, aes(sul_level)) +
   geom_bar(aes(fill = ..count..)) +
-  labs(title = "Wine by sulphate intervals", x = "sulphate intervals")
+  labs(title = "Wine by sulphate intervals", x = "sulphate intervals", y = "Number of wines")
 ```
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, freqpoly_ph} 
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_ph} 
 ggplot(wine, aes(x = pH)) +
   geom_freqpoly() +
   geom_vline(aes(xintercept = median(wine$pH), colour = "red"), show.legend = F) +
   scale_x_continuous(breaks = seq(2, 4, 0.1)) +
-  labs(title = "Wines by pH-value", caption = "Vertical red lines indicates median of pH")
+  labs(title = "Wines by pH-value", caption = "Vertical red lines indicates median of pH", y = "Number of wines")
 ```
 
-pH values seem to be almost normally distributed with a peak at 3.15 and longer
-tail at the right side of the distribution.
-Vertical blue line indicates median of pH
+pH values seem to be almost normally distributed with a peak at 3.15. The
+distribution has a longer tail at the right side.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE,}
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_residual_sugar}
 ggplot(wine, aes(x = residual.sugar)) +
   geom_freqpoly(binwidth = 0.25) +
   scale_x_continuous(breaks = c(seq(0, 5, 1), seq(5, 80, 10)), minor_breaks = seq(0, 5, 1)) +
-  labs(title = "Wines by residual sugar", x = "residual sugar")
+  labs(title = "Wines by residual sugar", x = expression(residual~sugar~(g/dm^3)), y = "Number of wines")
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, freqpoly_residual.sugar} 
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_residual.sugar2} 
 ggplot(wine, aes(x = residual.sugar)) +
   geom_freqpoly() +
   scale_x_log10(breaks = c(1, 1.75, 8, 14, 100), minor_breaks = seq(0, 15, 1)) +
-  labs(title = "Wines by residual sugar", x = "log10 of residual sugar")
+  labs(title = "Wines by residual sugar", x = "log10 of residual sugar", y = "Number of wines")
 ```
 ```{r echo=FALSE, message=FALSE, warning=FALSE, summary_residual.sugar} 
 summary(wine$residual.sugar)
@@ -157,29 +143,29 @@ As already observed during investigation of summary statistics, residual.sugar
 contains extreme values, thus skewing standard plots without scaling of
 the x-axis. The plot above uses a log10-scaled x-axis and provides better insight
 into the distribution of residual sugar. It appears to be multi-modal with peaks
-at 1.75, 8 and 14.
+at roughly 1.75, 8 and 14.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, sugar_intervals}
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_sugar_intervals}
 wine <- mutate(wine, sugar_level = cut(wine$residual.sugar, breaks = 16))
 
 ggplot(wine, aes(x = sugar_level)) +
   geom_bar(aes(fill = ..count..)) +
-  labs(title = "Wines by residual sugar intervals", x = "residual sugar intervals")
+  labs(title = "Wines by residual sugar intervals in grams", x = "residual sugar intervals", y = "Number of wines")
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, feqpoly_density} 
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_density} 
 ggplot(wine, aes(x = density)) +
   geom_freqpoly() +
   geom_vline(aes(xintercept = median(wine$density), colour = "red"), show.legend = F) + 
   scale_x_continuous(breaks = seq(0.9, 1.1, 0.01)) +
-  labs(title = "Wines by density", caption = "Vertical red line indicates median of density")
+  labs(title = "Wines by density", caption = "Vertical red line indicates median of density", x = expression(density~(g/cm^3)), y = "Number of wines")
 ```
 
 Most wines have a density close to 1.
-Vertical blue line indicates median of density
 
 ## Chemical variables
 Let's also investigate the remaining chemical variables:
+
 * fixed.acidity
 * volatile.acidity
 * citric.acid
@@ -187,29 +173,31 @@ Let's also investigate the remaining chemical variables:
 * free.sulfur.dioxide
 * total.sulfur.dioxide
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, freqpoly_fixed.acidity} 
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_fixed.acidity} 
 ggplot(wine, aes(x = fixed.acidity)) +
   geom_histogram(aes(fill = ..count..)) +
   scale_x_continuous(breaks = c(0, 3, 6, 6.5, 7, 7.5, 9, 12, 15), minor_breaks = seq(6, 7.5, 0.25)) +
-  labs(title = "Wines by fixed acidity", x = "fixed acidity")
+  labs(title = "Wines by fixed acidity", x = expression(fixed~acidity~(g/dm^3)))
 ```
 
 For most wines fixed acidity lies between 6 and 7.25 with two peaks at 6.5 and
 7.25
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, freqpoly_volatile.acidity} 
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_volatile.acidity} 
 ggplot(wine, aes(x = volatile.acidity)) +
   geom_histogram(aes(fill = ..count..), binwidth = 0.05) +
-  scale_x_continuous(breaks = c(0.1, 0.2, 0.25, 0.3, 0.6, 0.9), minor_breaks = seq(0.15, 0.3, 0.025))
+  scale_x_continuous(breaks = c(0.1, 0.2, 0.3, 0.6, 0.9), minor_breaks = seq(0.15, 0.3, 0.025)) +
+  labs(title = "Wines by volatile acidity", x = expression(volatile~acidity~(g/dm^3)), y = "Number of wines")
 ```
 
 Volatile acidity peaks at roughly 0.25 for most wines, but there are two additional
 plateaus at about 0.2 and 0.3.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, freqpoly_citric.acid} 
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_citric.acid} 
 ggplot(wine, aes(x = citric.acid)) +
   geom_histogram(aes(fill = ..count..), binwidth = 0.05) +
-  scale_x_continuous(breaks = c(0, 0.25, 0.3, 0.35, 0,5, 1, 1.5), minor_breaks = c(0.25, 0.3, 0.35))
+  scale_x_continuous(breaks = c(0, 0.25, 0.35, 0,5, 1, 1.5), minor_breaks = c(0.25, 0.3, 0.35)) +
+  labs(title = "Wines by citric acid", x = expression(citric~acid~(g/dm^3)), y = "Number of wines")
 ```
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 summary(wine$citric.acid)
@@ -218,13 +206,21 @@ summary(wine$citric.acid)
 Majority of wines have a concentration of citric acid ranging from 0.25 to 0.35.
 The maximum value is 1.66, which is roughly 5 times the median.
 
-```{r echo=FALSE, message=FALSE, freqpoly_chlorides} 
+```{r echo=FALSE, message=FALSE, u_chlorides} 
 ggplot(wine, aes(x = chlorides)) +
   geom_freqpoly() +
-  scale_x_log10(breaks = c(0, 0.01, 0,02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.1, 0.25, 0.5), minor_breaks = seq(0, 0.1, 0.01)) +
-  xlab("log10 of chlorides")
+  scale_x_continuous(breaks = seq(0, 0.5, 0.05)) +
+  labs(title = "Wines by chlorides", x = expression(chlorides~(g/dm^3)), y = "Number of wines")
 ```
-```{r echo=FALSE, message=FALSE, warning=FALSE,}
+
+
+```{r echo=FALSE, message=FALSE, u_chlorides2} 
+ggplot(wine, aes(x = chlorides)) +
+  geom_freqpoly() +
+  scale_x_log10(breaks = c(0, 0.01, 0,02, 0.03, 0.04, 0.05, 0.06, 0.1, 0.25, 0.5), minor_breaks = seq(0, 0.1, 0.01)) +
+  labs(title = "Wines by chlorides", x = "log10 of chlorides", y = "Number of wines")
+```
+```{r echo=FALSE, message=FALSE, warning=FALSE, summary_chlorides}
 summary(wine$chlorides)
 ```
 Similar to residual.sugar, chlorides contains extreme values, thus 
@@ -233,13 +229,21 @@ The plot above uses a log10-scaled x-axis and provides better insight
 into the distribution of chlorides. Most wines have concentration of chlorides
 between 0.03 and 0.06.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, freqpoly_free.sulfur.dioxide} 
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_free.sulfur.dioxide} 
+ggplot(wine, aes(x = free.sulfur.dioxide)) +
+  geom_freqpoly() +
+  scale_x_continuous(breaks = seq(0, 300, 50)) +
+  labs(title = "Wines by free sulfur dioxide", x = expression(free~sulfur~dioxide~(mg/dm^3)), y = "Number of wines")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_free.sulfur.dioxide2} 
 ggplot(wine, aes(x = free.sulfur.dioxide)) +
   geom_freqpoly() + 
   scale_x_log10(breaks = c(0, 10, 25, 50, 75, 100)) +
-  xlab("log10 of free sulfur dioxide")
+  labs(title = "Wines by free sulfur dioxide", x = "log10 of free sulfur dioxide", y = "Number of wines")
 ```
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE, summary_free_sulfur_dioxide}
 summary(wine$free.sulfur.dioxide)
 ```
 
@@ -247,12 +251,13 @@ Also free sulfur dioxide contains extreme values and thus the x-axis has been
 scaled to log10. Most wines have concentration of free sulfur dioxides between
 25 and 50.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, hist_total.sulfur.dioxide} 
+```{r echo=FALSE, message=FALSE, warning=FALSE, u_total.sulfur.dioxide} 
 ggplot(wine, aes(x = total.sulfur.dioxide)) +
   geom_histogram(aes(fill = ..count..), binwidth = 25) +
-  scale_x_continuous(breaks = seq(0, 450, 50))
+  scale_x_continuous(breaks = seq(0, 450, 50)) +
+  labs(title = "Wines by total sulfur dioxide", x = expression(total~sulfur~dioxide~(mg/dm^3)), y = "Number of wines")
 ```
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE, summary_total_sulfur_dioxide}
 summary(wine$total.sulfur.dioxide)
 ```
 
@@ -267,6 +272,7 @@ index). The variable quality is an ordered factor ranging from 0 (worst) to
 10 (best).
 
 Additional observations:
+
 * No wine has a quality rating below 3, none has one above 9
 * Most wines contain between 9 and 11% of alcohol
 * Median for residual sugar is 5.2g, but there is one wine with 65g
@@ -290,27 +296,21 @@ Some of the variables had bi- or multi-modal distributions, i.e. sulphates and
 residual sugar. In order to get an better overview about the distribution I
 transformed the x-axis of their plots to log10.
 
-# Bivariate Plots Section
-
-> **Tip**: Based on what you saw in the univariate plots, what relationships
-between variables might be interesting to look at in this section? Don't limit
-yourself to relationships between a main output feature and one of the
-supporting variables. Try to look at relationships between supporting variables
-as well
-
-# Bivariate Analysis
+# Bivariate Plots Section and analysis
 
 Before investigating relationships among the main features of the dataset and
-wine quality, let us check correlations among all variables
+wine quality, let us check correlations among all variables:
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-ggcorr(wine[, 2:13], hjust = 1, size = 3, label = TRUE, label_size = 3, label_alpha = TRUE, layout.exp = 2)
+ggcorr(wine[, 2:13], hjust = 1, size = 3, label = TRUE, label_size = 3, label_alpha = TRUE, layout.exp = 2) +
+  labs(title = "Pearson correlation matrix")
 ```
 
 Apparently there exist only a moderately strong positive correlation between
 quality and alcohol. All other variables seem to be either unrelated or
 moderately negatively correlated (density) with quality. Consequently I will
 limit my bivariate analysis to relationships between
+
 * quality and alcohol
 * quality and density
 * density and alcohol
@@ -319,14 +319,14 @@ limit my bivariate analysis to relationships between
 ```{r echo=FALSE, message=FALSE, warning=FALSE, scatter_alcohol_quality}
 ggplot(wine, aes(y = alcohol, x = as.factor(quality))) +
   geom_boxplot() +
-  labs(title = "Alcohol vs. Quality", x = "quality")
+  labs(title = "Alcohol vs. Quality", x = "quality", y = "alcohol (% by volume)")
 ```
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(wine, aes(x = quality, y = alcohol)) +
   geom_point(alpha = 0.1) +
   geom_smooth(method = "lm", se = TRUE, aes(colour = "red"), show.legend = FALSE) +
   scale_x_continuous(breaks = seq(1, 9, 1)) +
-  labs(title = "Alcohol vs Quality", caption = "Positive relationship between variables")
+  labs(title = "Alcohol vs Quality", caption = "Positive relationship between variables", y = "alcohol (% by volume)")
 ```
 
 Generally we can observe a moderate trend of rising levels of alcohol
@@ -338,7 +338,7 @@ a slight positive trend.
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(wine, aes(y = density, x = as.factor(quality))) +
   geom_boxplot() +
-  labs(title = "Density vs Alcohol", x = "quality")
+  labs(title = "Density vs Alcohol", x = "quality", y = expression(density~(g/cm^3)))
 ```
 
 The further quality ratings increase, the lower density becomes.
@@ -347,13 +347,14 @@ The further quality ratings increase, the lower density becomes.
 p1 <- ggplot(wine, aes(x = alcohol, y = density)) +
     geom_point(alpha = 0.1) +
     geom_smooth(method = "lm", se = FALSE) +
-    labs(title = "Density vs Alcohol", caption = "Negative correlation between variables")
+    labs(title = "Density vs Alcohol", caption = "Negative correlation between variables", x = "alcohol (% by volume)", y = expression(density~(g/cm^3)))
 
 p2 <- ggplot(wine, aes(x = residual.sugar, y = density)) +
     geom_point(alpha = 0.1) +
     geom_smooth(method = "lm", se = FALSE, aes(colour = "red"), show.legend = FALSE) +
-    labs(title = "Density vs. Residual sugar", x = "residual sugar", caption = "Positive correlation between variables")
+    labs(title = "Density vs. Residual sugar", x = expression(residual~sugar~(g/cm^3)), caption = "Positive correlation between variables", y = expression(density~(g/cm^3)))
 
+# arrange plots side by side
 grid.arrange(p1, p2, ncol = 2)
 ```
 
@@ -382,12 +383,12 @@ density and alcohol and density and residual.
 
 # Multivariate Plots Section
 
-Let's have a look at the relationship between alcohol, quality and density
+Let's have a look at the relationship between alcohol, quality and density:
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, Multivariate_Plots}
 ggplot(wine, aes(x = factor(quality), y = alcohol)) +
   geom_point(aes(colour = density), alpha = 0.1) +
-  labs(title = "Alcohol vs Quality by density", x = "quality")
+  labs(title = "Alcohol vs Quality by density", x = "quality", y = "alcohol (% by volume")
 ```
 
 If we inspect the plot closely we do see higher concentrations of alcohol
@@ -396,8 +397,9 @@ associated with higher quality rating and lower values for density.
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(wine, aes(x = factor(quality), y = alcohol)) +
   geom_point(aes(colour = residual.sugar), alpha = 0.1) +
-  labs(title = "Alcohol vs Quality by residual sugar", x = "quality")
+  labs(title = "Alcohol vs Quality by residual sugar", x = "quality", y = "alcohol (% by volume)")
 ```
+
 # Multivariate Analysis
 
 Model is based on the assumptions I outlined in the univariate plots section,
@@ -419,6 +421,7 @@ wine_lm3 = lm(quality ~ alc_level + sul_level + sugar_level + density, data = wi
 # lm4 solely based on alcohol
 wine_lm4 = lm(quality ~ alcohol, data = wine)
 
+# print summary statistics
 summary(wine_lm1)
 summary(wine_lm2)
 summary(wine_lm3)
@@ -436,7 +439,7 @@ No, as revealed by the correlation matrix, quality is only moderately strong
 related to alcohol and density. Therefore investigating other variables did
 not bring any new insights
 
-### OPTIONAL: Did you create any models with your dataset? Discuss the \
+### Did you create any models with your dataset? Discuss the \
 strengths and limitations of your model.
 The four linear models I created a very simple and do not predict quality well.
 
@@ -447,7 +450,7 @@ The four linear models I created a very simple and do not predict quality well.
 ggplot(wine, aes(as.factor(quality))) +
   geom_bar(aes(fill = alc_level)) +
   theme(legend.position = "bottom") +
-  labs(title = "Wine quality", x = "Quality (by rating)", y = "Number of wines", fill = "Alcohol concentration intervals")
+  labs(title = "Wine quality", x = "Quality", y = "Number of wines", fill = "Alcohol concentration intervals")
 ```
 
 ### Description One
@@ -459,7 +462,7 @@ categories (>= 6) tend to have a higher concentration of alcohol.
 ```{r echo=FALSE, message=FALSE, warning=FALSE, Plot_Two}
 ggplot(wine, aes(y = alcohol, x = as.factor(quality))) +
   geom_boxplot(outlier.shape = 1, outlier.color = "red", outlier.alpha = 0.5) +
-  labs(title = "Alcohol vs. Quality", x = "Quality (by rating)", y = "Alcohol (in percent)")
+  labs(title = "Alcohol vs. Quality", x = "Quality", y = "Alcohol (% by volume)")
 ```
 
 ### Description Two
@@ -481,34 +484,45 @@ with alcohol and density. All other variables are not correlated with quality.
 When reflecting on my analysis of the wine dataset, the following points come
 to mind:
 
-Path of analysis:
-1. I started by examining every single variable in the dataset and formulated
-hypotheses on which variables could be significant in predicting wine quality
-2. After calculating correlations, I found out that actually only alcohol (and
-density) had some correlation with quality
-3. Therefore I based my linear models on these variables (and the factors I
-created from them)
+### Path of analysis
+I started by examining every single variable in the dataset and formulated
+hypotheses on which variables could be significant in predicting wine quality.
+After calculating correlations, I found out that actually only alcohol (and
+density) had some correlation with quality. Therefore I based my linear
+models on these variables (and the factors I created from them).
 
-Struggles:
-As most of the (chemical) variables of the wine dataset were unknown to me,
+### Challlenges
+
+* As most of the (chemical) variables of the wine dataset were unknown to me,
 before starting with data exploration, I had familiarize myself with their 
 meaning
-
-In the beginning I used histograms for every visualization in univariate
+* In the beginning I used histograms for every visualization in univariate
 analysis and played with bin width. I realized only later that freqpoly plots
 have some advantage of histograms when the variable of interest is dispersed over
 a wide range of values
+* It took me some time to best deal with log10 transformed x-axis
 
-It took me some time to best deal with log10 transformed x-axis
+### Successes
 
-Positive learning outcomes:
-The correlation matrix I created with ggcorr was very helpful for further
+* The correlation matrix I created with ggcorr was very helpful for further
 analysis.
+* I found geom_smooth() to be very helpful in visualizing trends in the data.
 
-I found geom_smooth() to be very helpful in visualizing trends in the data
+### Surprising observations
 
-Surprising observations
-
-Before starting my analysis, that the dataset would contain more variables
+* Before starting my analysis, that the dataset would contain more variables
 that were highly correlated with wine quality. It was a bit disappointing to
 have only alcohol to play with.
+
+### Recommendations for future work
+
+* It would be great to incorporate further (economic) variables (price, quantity
+sold, origin of wine, etc.) into the dataset to investigate quality from a
+different angle.
+
+# Resources
+
+* [R documentation](https://www.r-project.org/other-docs.html)
+* [ggplot2 documentation](http://ggplot2.tidyverse.org/reference/)
+* [GGally documentation](http://ggobi.github.io/ggally/#ggally)
+* [tidyverse documentation](http://tidyverse.org/)
